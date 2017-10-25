@@ -1,0 +1,11 @@
+1.更新lib包：需要将原有的wxqyh-xxx.jar和dqdp-xxx.jar的包先删掉，然后用新的覆盖升级即可
+
+2.增加配置项：
+模块名		配置项名称		配置值					说明
+systemmgr	resource_port	http://xxx/qwy	静态资源路径（js、css等）如果静态资源和项目没有分离，可以不配置。
+systemmgr	open_port			http://xxx/open	外部表单分享的url
+
+3.如果要使用外部表单，为了保证系统的安全，建议单独一个应用独立部署，struts.xml中只保留引入<include file="struts-open.xml"/>，其它模块的struts引入请自行删掉
+外部表单部署应用的web.xml，请将手机端的登录拦截器去掉，否则分享出去的表单无法正常填写。
+
+4.pom.xml为二次开发的主工程pom文件部署时不需要部署此文件

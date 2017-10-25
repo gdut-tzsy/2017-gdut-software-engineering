@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>工作协同套件授权安装-企微云平台</title>
+<meta name="description" content="企微云平台工作协同套件授权安装">
+<meta name="keywords" content="企微云平台工作协同授权安装">
+</head>
+<style type="text/css">
+    *{ margin:0; padding: 0}
+    body{ font:14px 微软雅黑; color: #666; line-height: 1.7; background:#4990e2 url("images/bg.jpg") repeat center top; }
+    h1{ font-size: 20px; color: #1a1917; font-weight: 500; }
+    ul{ list-style: none}
+    img{border-radius: 5px;}
+    a{ text-decoration: none; color: #666}
+    a:hover{text-decoration: underline;}
+    .center{ text-align: center}
+    .ohidden{ overflow: hidden; }
+    .mt20{ margin-top: 20px; }
+    .pb40{ padding-bottom: 40px; }
+    .fr{ float: right; }
+    .wrap{ width: 680px; margin:40px auto; background: #fff; -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.4); -moz-box-shadow: 0 2px 4px rgba(0,0,0,.4); box-shadow: 0 2px 4px rgba(0,0,0,.4); }
+    .main{ width: 600px; margin:0 auto; }
+    .logo{ padding-top: 60px; }
+    .logo img{ width: 80px; height: 80px; }
+    .btn { height: 42px; width: 320px; margin: 65px auto 10px; background-color: #4a90e2; display: block; text-align: center; line-height: 42px; color: white; text-decoration: none; font-size: 16px; cursor: pointer; }
+    .c4a90e3{ color: #4a90e3}
+    .list a { display: block; width: 60px; float: left; margin-right: 20px; }
+    .list img { width: 60px; height: 60px; vertical-align: middle; }
+    .info { margin-top: 30px; border-top: 1px solid #ddd; padding-top: 10px; margin-bottom: 15px; }
+    .btn:hover { background: #4281CA;text-decoration:none }
+</style>
+<body>
+<div class="wrap">
+    <div class="main">
+    <div class="logo center"><img src="images/ic3.png" alt="工作协同套件" /></div>
+        <h1 class="center">授权【企微 · 工作协同】套件托管你的应用</h1>
+
+        <div class="mt20"><p>工作协同套件应用于企业内部团队、部门间协同工作的各种场景，通过应用此套件，能够将整个协同工作流程移动化，提高内部沟通效率。</p>
+<p>该套件集成了通讯录、任务分派、同事群聊、工作日志等应用，以下通过“一键授权接入”实现安装，你可以选择安装一个应用或多个应用单元。</p></div>
+<a onclick="submit()" class="btn">立即授权安装</a>
+<p class="center">授权后表明你已同意<a target="_blank" href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/service.html" class="c4a90e3">《企微服务条款》</a></p>
+<p class="info ohidden">您还可<span style="color:#f05454">免费</span>安装以下套件：<a target="_blank" href="http://wbg.do1.com.cn/suiteps/question/st_help.html" class="c4a90e3 fr">套件安装说明 > </a> </p>
+<div class="list ohidden pb40">
+    <!-- <a href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_zygl.html?code=tj18e98bf29b3e0a15" target="_blank"><img src="images/ic4.png" alt="资源管理" />资源管理</a> -->
+    <a href="javascript:togo('tjf7e6b5acbc7a715e');"><img src="images/ic5.png" alt="企业文化" />企业文化</a>
+    <a href="javascript:togo('tj3adffe72e54c0f4c');"><img src="images/ic1.png" alt="移动办公" />移动办公</a>
+    <a href="javascript:togo('tjd2ac85eb412f2081');"><img src="images/ic2.png" alt="销售管理" />销售管理</a>
+    <a href="javascript:togo('tj7412c2fd27db139d');"><img src="images/ic6.png" alt="消息服务" />消息服务</a>
+    <a href="javascript:togo('tj4149d73e6a5100cc');"><img src="images/ic7.png" alt="智慧校园" />智慧校园</a>
+    <a href="javascript:togo('tjd12c4309e0beb5ba');"><img src="images/ic8.png" alt="人资管理" />人资管理</a>
+    <a href="javascript:togo('tj0498aaf0f2ef63f5');"><img src="images/ic10.png" alt="门店考勤" />门店考勤</a>
+    <a href="javascript:togo('tja633eb6177df9d3b');"><img src="images/ic9.png" alt="表单定制" />表单定制</a>
+</div>
+</div>
+    </div>
+    <script type="text/javascript" src="http://res.do1.com.cn/qwy/js/3rd-plug/jquery-ui-1.8/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+	
+    function submit(){
+
+        var args = document.location.toString().split('?');
+         var param=args[1].replace("code","suiteId");
+         $.ajax({
+            type:"post",
+            url:"http://qy.do1.com.cn/qwy/portal/experienceapplication/expappAction!addClickCount.action?"+param,
+            dataType:'json'
+         });
+        window.location.href="http://qy.do1.com.cn/qwy/portal/weixin/weixinclientAction!authSuite.action?"+param;
+    /* 
+            var code="";
+            var args = document.location.toString().split('?');
+             var param = args[1].split('&');
+             for (var i = 0; i < param.length; i ++) {
+                 if (param[i].split('=')[0] == "code")
+                    code= decodeURI(args[1].split('=')[1]);
+             }
+             $.ajax({
+                type:"post",
+                url:"http://qy.do1.com.cn/qwy/portal/experienceapplication/expappAction!addClickCount.action?suiteId="+code,
+                dataType:'json'
+             });
+            window.location.href="http://qy.do1.com.cn/qwy/portal/weixin/weixinclientAction!authSuite.action?suiteId="+code;
+             */
+       
+    }
+    function togo(code){
+        var args = document.location.toString().split('?');
+        var param=args[1].replace("tjf7e6b5acbc7a715e",code).replace("tj3adffe72e54c0f4c",code).replace("tjd2ac85eb412f2081",code).replace("tj0663c8afd643ba9e",code).replace("tj7412c2fd27db139d",code).replace("tj4149d73e6a5100cc",code).replace("tjd12c4309e0beb5ba",code).replace("tj0498aaf0f2ef63f5",code).replace("tja633eb6177df9d3b",code);
+        if(code=="tjf7e6b5acbc7a715e"){
+            window.location.href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_xxcj.html?"+param;
+        }
+        else if(code=="tj3adffe72e54c0f4c"){
+            window.location.href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_wxbg.html?"+param;
+        }
+        else if(code=="tjd2ac85eb412f2081"){
+            window.location.href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_xsgl.html?"+param;
+        }
+        else if(code=="tj0663c8afd643ba9e"){
+            window.location.href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_gzxt.html?"+param;
+        }
+        else if(code=="tj7412c2fd27db139d"){
+            window.location.href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_xxfw.html?"+param;
+        }
+        else if(code=="tj4149d73e6a5100cc"){
+            window.location.href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_zhxy.html?"+param;
+        }
+        else if(code=="tjd12c4309e0beb5ba"){
+            window.location.href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_rzgl.html?"+param;
+        }
+        else if(code=="tj0498aaf0f2ef63f5"){
+            window.location.href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_mdkq.html?"+param;
+        }
+        else if(code=="tja633eb6177df9d3b"){
+            window.location.href="http://qy.do1.com.cn/qwy/qiweipublicity/experience2/step_suite_bddz.html?"+param;
+        }
+    }
+</script>
+</body>
+</html>

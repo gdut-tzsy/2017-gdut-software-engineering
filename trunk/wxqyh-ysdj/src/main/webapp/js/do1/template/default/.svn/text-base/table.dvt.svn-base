@@ -1,0 +1,46 @@
+<table class="tableCommon" width="100%" border="0" cellspacing="0" cellpadding="0">
+<thead> <tr>
+        {{for (var i = 0; i < this.title.length; i++) {
+            if (this.checkableColumn != "" && this.title[i].isCheckColunm) {
+                thead += "<th width=" + this.title[i].width + "><input type=\"checkbox\" onclick=\"_doCheck(this,'ids')\"></th>";
+            } else if (this.title[i].isOperationColumn) {
+                thead += "<th width=" + this.title[i].width + "> 操作 </th>";
+            } else
+                thead += "<th width=" + this.title[i].width + ">" + this.title[i].showName + "</th>";
+        }
+        thead += "</tr> </thead>";
+        var tbody = "<tbody >";
+        if (this.data == null || this.data == undefined || this.data.length < 1) {
+            tbody += "<tr  class=\"" + this.trStyle[i % 2] + "\" ><td colspan=\"" + this.title.length + "\">查询结果为空</td></tr>";
+        } else
+            for (var i = 0; i < this.data.length; i++) {
+                var currData = this.data[i];
+                tbody += "<tr  class=\"" + this.trStyle[i % 2] + "\" ";
+                tbody += ">";
+                for (var j = 0; j < this.title.length; j++) {
+                    if (this.title[j].isCheckColunm) {
+                        var checkAbleFunc = this.title[j].checkAble;
+                        var checkAble = checkAbleFunc ? checkAbleFunc.call(checkAbleFunc, i, currData) ? "" : "disabled='true'" : "";
+                        tbody += "<td class=\"tc\" width=" + this.title[j].width + "><input type=\"checkbox\" name=\"ids\" " + checkAble + " value=\"" + this.data[i][$target.checkableColumn] + "\"></td>";
+                    }
+                    else if (this.title[j].isOperationColumn) {
+                        tbody += "<td class=\"tdOpera  tc\"  width=" + this.title[j].width + ">";
+                        $.each(this.operations, function (index, content) {
+                            if ((!content.permission || _dqdp_permissions[content.permission]) && (!content.condition || content.condition.call(content.condition, i, currData)))
+                                tbody += "<a href=\"" + _hrefLink + "\">" + content.name + "</a>&nbsp;&nbsp;";
+                        });
+                        tbody += "</td>";
+                    } else {
+                        var name = this.title[j].name;
+                        var content = this.data[i];
+                        var canLink = this.title[j].href && (!this.title[j].linkPermission || _dqdp_permissions[this.title[j].linkPermission]);
+                        tbody += "<td class=\"tc\" dataType=\"data\">" + ( canLink ? "<a type=\"link\" titleIndex=\"" + j + "\" href=\"" + _hrefLink + "\">" : "")
+                                + (content[name] == undefined ? "&nbsp;" : (this.title[j].length ? _getStrByLen(content[name], this.title[j].length) : content[name]))
+                                + ( canLink ? "</a>" : "")
+                                + "</td>";
+                    }
+                }
+                tbody += "</tr>";
+            }
+        tbody += "</tbody>";
+        $("#" + $divTarget).html('' + thead + tbody + '</table>');

@@ -1,0 +1,30 @@
+.f-user-add {
+    background: url("../images/add_user.png") no-repeat 0 0;
+    background-size: 100% 100%;
+    width: 25px;
+    height: 25px;
+    border-style:none;
+}
+.f-user-remove {
+    background: url("../images/remove_user.png") no-repeat 0 0;
+    background-size: 100% 100%;
+    border-style:none;
+    width: 25px;
+    height: 25px;
+}
+.jiange {
+	margin-bottom:10px;
+}
+
+.voice  {
+	border: 1px solid #e2750a;
+	padding:10px;
+}
+
+.picture  {
+	 border: 1px solid #e2750a;
+	 padding:10px;
+}
+.fieldbt {
+	padding:3px;
+}

@@ -1,0 +1,175 @@
+.div1{
+    border-bottom: 1px solid #dddddd;
+    height: 30px;
+    margin-top: 30px;
+    text-indent: 20px;
+    text-align:center;
+    line-height:30px;
+}
+
+.rootDiv {
+    background-color: #E8F5FE;
+    border: 2px solid #A9C9E2;
+}
+
+.oneLevel {
+    background-color: #E8F5FE;
+    border: 1px solid #B9C9E2;
+}
+
+.twoLevel {
+    background-color: #E8F5FE;
+    border: 1px solid #B9C9E2;
+}
+.menu_set .form  ul li {
+    width:895px;
+    border: 1px solid #ccc;
+    padding:20px 0;
+    margin-bottom:20px;
+    position:relative;
+    background:#f6f5f4;
+}
+.form .set1Menu{
+    display:block;
+    cursor:move;
+    padding:0 20px;
+}
+.form .set2Menu{
+    cursor:move;
+    padding:0 20px;
+}
+.form .set1Menu:hover{
+    background:#e5e5e5;
+}
+.form .set2Menu:hover{
+    background:#e5e5e5;
+}
+.form .form-text.setName1 {
+    padding: 6px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 86px;
+    margin:5px 0;
+}
+.form .form-text.setName {
+    padding: 6px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 106px;
+    margin:5px 0;
+}
+.form .form-text.setUrl{
+    padding: 6px;
+    width: 500px;
+    color:#666;
+    margin:5px 0 5px 70px;
+}
+.form .set2Menu .form-text.setUrl {
+    margin:5px 0 5px 28px;
+    padding: 6px;
+    width: 500px;
+}
+
+.add_icon {
+    background: none repeat scroll 0 0 #80c056;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 17px;
+    position: relative;
+    top: 5px;
+    width: 17px;
+    margin-left: 10px;
+    margin-top: 8px;
+    display:inline-block;
+}
+.add_icon > i {
+    color: white;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: bold;
+    left: 1px;
+    position: absolute;
+    top: -6px;
+}
+.addli_icon{
+    background: none repeat scroll 0 0 #80c056;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 17px;
+    position: absolute;
+    top:50%;
+    right:-40px;
+    width: 17px;
+    margin-top: -10px;
+    display:inline-block;
+}
+.addli_icon > i {
+    color: white;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: bold;
+    left: 1px;
+    position: absolute;
+    top: -6px;
+}
+.deleteli_icon {
+    background: #df4949;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 17px;
+    position: absolute;
+    top:50%;
+    right:-40px;
+    width: 17px;
+    margin-top: -10px;
+    display:inline-block;
+}
+.deleteli_icon > i {
+    color: white;
+    font-size: 34px;
+    font-style: normal;
+    left: 1px;
+    position: absolute;
+    top: -18px;
+}
+.delete_icon {
+    background: #df4949;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 17px;
+    position: relative;
+    top: 5px;
+    width: 17px;
+    margin-left: 10px;
+    margin-top: 8px;
+    display:inline-block;
+}
+.delete_icon > i {
+    color: white;
+    font-size: 34px;
+    font-style: normal;
+    left: 1px;
+    position: absolute;
+    top: -18px;
+}
+.set2Menu > i {
+    border-color: #ccc transparent transparent #ccc;
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+    margin-left:5px;
+}
+.solid {
+    background:#dbdbdb;
+    height: 1px;
+    margin-top: 10px;
+}
+
+select{
+    margin-left:20px;
+}

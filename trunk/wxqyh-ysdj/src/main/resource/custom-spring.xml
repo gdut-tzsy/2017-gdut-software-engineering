@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+     <bean name="defalutPersonDAO" class="cn.com.do1.component.systemmgr.person.dao.impl.PersonDAOImpl" parent="baseDAO"/>
+
+     <bean name="defalutUserDAO" class="cn.com.do1.component.systemmgr.user.dao.impl.UserDAOImpl" parent="baseDAO"/>
+
+     <!--<bean name="qywMyUserDAO" class="cn.com.do1.component.qywsystemmgr.user.dao.impl.UserDAOImpl"  parent="baseDAO"/>-->
+
+     <!--<bean name="myPersonService" class="cn.com.do1.component.qywsystemmgr.user.service.impl.QywUserServiceImpl"/>-->
+
+</beans>

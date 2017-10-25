@@ -1,0 +1,23 @@
+<assembly>
+    <id>abc</id>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <!--<dependencySets>-->
+        <!--<dependencySet>-->
+            <!--<useProjectArtifact>true</useProjectArtifact>-->
+            <!--<outputDirectory>lib</outputDirectory>-->
+        <!--</dependencySet>-->
+    <!--</dependencySets>-->
+    <fileSets>
+        <fileSet>
+            <directory>src/main/java/cn/com/do1/component/systemmgr</directory>
+            <outputDirectory>/cn/com/do1/component/systemmgr</outputDirectory>
+            <!--<includes>-->
+                <!--<include>run.sh</include>-->
+                <!--<include>run.bat</include>-->
+            <!--</includes>-->
+        </fileSet>
+    </fileSets>
+</assembly>

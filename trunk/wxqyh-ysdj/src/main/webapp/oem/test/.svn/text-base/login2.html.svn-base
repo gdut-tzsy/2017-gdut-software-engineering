@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="keywords" content="企微,企业微信,移动办公">
+    <meta name="description" content="">
+    <title>login2</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../../../manager/css/style.css?ver=<%=jsVer%>"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+<script src='jquery-1.10.2.min.js'></script>
+<script src='../../js/jquery.cookie.js'></script>
+<script src='jquery.form.js'></script>
+
+<script type="text/javascript">
+	//$.cookie("do1qw@loginType","cooperation");
+	//$.cookie("do1qw@loginUrl","http://www.baidu.com");
+	
+/* 	var expiresDate = new Date();
+	expiresDate.setTime(expiresDate.getTime()+ (30 * 24 * 60 * 60 * 1000));
+	$.cookie("do1qw@loginType", "cooperation", {
+		path : '/',
+		expires : expiresDate
+	});
+	
+	$.cookie("do1qw@loginUrl", "http://www.baidu.com", {
+		path : '/',
+		expires : expiresDate
+	}); */
+</script>
+</head>
+<body>
+<div class="frontHome page">
+    <div class="wrap-header">
+        <div id="header">
+            <div class="inner-header">
+                <div class="logoNav clearfix" style='height:auto'>
+                	<a id="logo" target="_blank">
+                        <img src="images/logo_c.png" alt="">
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap-container">
+    	<!-- style="background:url('images/index_bg.png')" -->
+        <div id="home_container" class="clearfix" >
+            <div id="home_main">
+                <div class="inner-main">
+                    <div class="login_box" style="height:330px; top: 50px;">
+                         <h2>登录</h2>
+                         <!-- 
+                         	登录接口的表单 id="id_form_login"  method="post"
+                         	1、账号的name和id属性不能改，必须为 name="j_username" id="j_username"
+                         	2、密码的name和id属性不能改, 必须为name="j_password" id="j_password" 
+                         	3、表单按钮提交到js的验证方法checkUser，请参阅js关键代码说明
+                          -->
+			           <form id="id_form_login" action="" method="post" autocomplete="off">
+			               <div id="idInputLine" class="loginFormIpt"> <b class="ico ico-uid-mail"></b>
+			                   <input class="loginFormTdIpt" tabindex="1" title="请输入账号" placeholder="请输入账号"  
+			                   name="j_username" id="j_username" type="text" maxlength="50" value="">
+			               </div>
+			               <div id="pwdInputLine" class="loginFormIpt"> <b class="ico ico-pwd"></b>
+			                   <input class="loginFormTdIpt" tabindex="2" title="请输入密码" placeholder="请输入密码" 
+			                   name="j_password" id="j_password" type='password'>
+			               </div>  
+			               <div class="lfAutoLogin">
+			                   <div class="form-field form-field-rc">
+			                      <label> </label>
+			                   </div>`
+			               </div>
+			               <div class="loginFormBtn clearfix">
+			                   <button class="login_btn" type="button" onclick="checkUser()" style="width:100%;">
+			                   		登录</button>
+			               </div>
+			           </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap-footer">
+        <div id="footer">
+            <div class="inner-footer">
+                <div class="foot">合作商版权信息</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+</body>
+</html>
+<script type="text/javascript" language="javascript">
+
+//在自己的后台，根据接口，返回的信息
+function checkUser(){
+	var j_username=$("#j_username").val();
+	var j_password=$("#j_password").val();
+	
+    var pathName=window.document.location.pathname;
+    //获取带"/"的项目名，如：/uimcardprj
+    var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+    if(projectName != "" && projectName != "/wxqyh" && projectName !="/qwy"){
+    	projectName = "";
+    }
+	var houtaiUrl= projectName+"/portal/cooperationOpen/cooperationOpenAction!checkTestUser.action"//这是提交到自己的后台的验证接口（自己的后台需要处理企微的接口）
+ 	$.ajax({
+		url : houtaiUrl,
+		data : {
+			'uid':'6e3b6fd3-5fda-4bba-87e5-8bf8c05e3777',//这里的uid是我们分配你们的唯一uid
+			'j_username':j_username,
+			'j_password':j_password,
+			"testType":"1"
+		},
+		type : "get",
+		async : false,
+		dataType : "json",
+		success : function(result) {
+			if(result.data.resultCode=="100"){
+				var  httpUrl="";
+
+				httpUrl="http://121.199.65.32:7090";//测试地址
+
+				httpUrl="http://218.244.134.189/qwy";//正式地址
+				
+				//验证通过后，必须以    $("#id_form_login").submit()   这样的表单方式提交到对应企微的地址中
+				//表单提交后会自动跳转到相应的登录成功页面
+				if(result.data.resultLoginType=="user"){
+					var userUrl=httpUrl+"/j_spring_security_check";//这是企业微信管理员的登录地址
+					//管理员
+					$("#id_form_login").attr("action", userUrl);
+					$("#id_form_login").submit();
+				}else if(result.data.resultLoginType=="person"){
+					//微信个人网页登录
+					var personLoginUrl=httpUrl+"/portal/userLoginAction!weixinWebLogin.action";//这是个人版网页的登录地址
+					
+				    $("#id_form_login").attr("action", personLoginUrl);
+				    $("#id_form_login").submit();
+				}	
+			}else{
+				alert(result.data.resultMsg);
+			}
+			
+		},
+		error : function() {
+			alert("系统繁忙");
+		}
+	}); 
+}
+</script>

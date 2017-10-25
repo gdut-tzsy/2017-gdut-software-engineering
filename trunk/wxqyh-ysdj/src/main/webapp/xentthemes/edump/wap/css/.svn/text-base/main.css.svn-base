@@ -1,0 +1,56 @@
+@import url(reset.css);
+/*swiper*/
+.boxModal {display: box;
+    display: -webkit-box;
+    display: -moz-box;
+}
+.swiper-container {
+	position: relative;
+  	overflow: hidden;
+}
+.swiper-pagination-square {position: absolute;bottom:5px;width: 100%;text-align: center;}
+.swiper-pagination-square>span {
+	display: inline-block;width: 20px;height:3px;margin-right:5px;
+ 	background: rgba( 255, 255, 255,.8);
+}
+.swiper-pagination-square>span.swiper-pagination-bullet-active {background: #f7941d}
+#swiper-container-banner .swiper-slide {text-align: center;}
+.swiper-container-v {width: 100%;position: absolute;top:0;bottom: 46px;overflow-y:auto}
+
+/*tab*/
+.ui_tab {background-color: #fff;border-bottom: 1px solid #e6e6e6}
+.ui_tab>li {padding-top: 10px;padding-bottom: 10px;text-align: center;color: #4c4c4c;font-size: 15px;}
+.ui_tab>li.on {color:#0054a5;}
+.swiper-scrollbar {height: 3px;margin-top: -3px;}
+.swiper-scrollbar-drag {height: 3px;background:#0054a5;}
+
+/*联系人列表*/
+.contact_list>li {padding: 10px;position: relative;background-color: #fff}
+.contact_list>li:after {position: absolute;content: '';
+	bottom: 0;left: 70px;right: 0;border-bottom: 1px solid #e6e6e6
+}
+
+/*排行榜*/
+.rank_table th,
+.rank_table td {text-align: center;padding-top: 10px;padding-bottom: 10px;
+  border-top: 1px solid #dedede;border-bottom: 1px solid #dedede}
+.rank_table th {background-color: #f7f7f7;font-size: 15px;color: #656565}
+.rank_table .rank_score {display: inline-block;width: 20px;height: 27px;}
+.rank_table tr:nth-child(1) td .rank_score {background: url(../images/icon/gold.png) no-repeat;
+  background-size: contain
+}
+.rank_table tr:nth-child(2) td .rank_score {background: url(../images/icon/silver.png) no-repeat;
+  background-size: contain
+}
+.rank_table tr:nth-child(3) td .rank_score {background: url(../images/icon/bronze.png) no-repeat;
+  background-size: contain
+}
+.rank_table tr:nth-child(1) td .rank_score,
+.rank_table tr:nth-child(2) td .rank_score,
+.rank_table tr:nth-child(3) td .rank_score {text-indent: -150%}
+.rank_table tr:nth-child(n+4) td .rank_score {width: 21px;height: 21px;background-color:#FE7472;color: #fff;
+  border-radius: 100%;background-clip: padding-box
+}
+.rank_table .tl {text-align: left;}
+.ranking_user {margin-right: 5px;width: 36px;height:36px;border-radius: 100%;background-clip: padding-box}
+

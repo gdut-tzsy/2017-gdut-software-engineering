@@ -1,0 +1,251 @@
+.WdateDiv {
+    position: relative;
+    width: 200px;
+    font-size: 12px;
+    color: #333;
+    border: solid 2px #ddd;
+    background-color: #fff;
+    padding: 15px 10px 10px 10px;;
+}
+.WdateDiv2 {
+    width: 360px;
+}
+.WdateDiv .NavImg a, .WdateDiv .yminput, .WdateDiv .yminputfocus, .WdateDiv #dpQS {
+    background: url(img.png) no-repeat;
+}
+.WdateDiv .NavImg a {
+    float: left;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.WdateDiv .NavImgll a {
+    background-position: 0 5px;
+}
+.WdateDiv .NavImgl a {
+    background-position: 0 -10px;
+}
+.WdateDiv .NavImgr a {
+    background-position: 0 -25px;
+    float: right;
+}
+.WdateDiv .NavImgrr a {
+    background-position: 0 -40px;
+    float: right;
+}
+.WdateDiv #dpTitle {
+    line-height: 0;
+    height: 22px;
+    padding: 3px 4px 2px 10px;
+    background-color: #efefef;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+.WdateDiv .yminput, .WdateDiv .yminputfocus {
+    margin-left: 3px;
+    width: 54px;
+    height: 20px;
+    line-height: 16px;
+    border: solid 1px #eee;
+    cursor: pointer;
+    background-position: 40px -68px;
+    padding: 0 4px;
+    color: #333;
+}
+.WdateDiv .yminputfocus {
+    background-color: #fff;
+    border: solid 1px #D8D8D8;
+}
+.WdateDiv .menuSel {
+    z-index: 1;
+    position: absolute;
+    background-color: #FFF;
+    border: #A3C6C8 1px solid;
+    display: none;
+}
+.WdateDiv .menu {
+    background: #fff;
+}
+.WdateDiv .menuOn {
+    color: #fff;
+    background: #2a91ca;
+}
+.WdateDiv .MMenu, .WdateDiv .YMenu {
+    margin-top: 20px;
+    margin-left: -1px;
+    width: 68px;
+    border: solid 1px #D9D9D9;
+    padding: 2px;
+}
+.WdateDiv .MMenu table, .WdateDiv .YMenu table {
+    width: 100%;
+}
+.WdateDiv .MMenu table td, .WdateDiv .YMenu table td {
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0;
+}
+.WdateDiv .Wweek {
+    text-align: center;
+    background: #DAF3F5;
+    border-right: #BDEBEE 1px solid;
+}
+.WdateDiv td {
+    line-height: 20px;
+    font-size: 12px;
+    color: #666;
+    background: #fff;
+    cursor: pointer;
+    padding: 1px;
+}
+.WdateDiv .MTitle td {
+    line-height: 24px;
+    color: #333;
+    background: #fff;
+    cursor: default;
+    padding-left:6px;
+}
+.WdateDiv .WdayTable2 {
+    border-collapse: collapse;
+    border: gray 1px solid;
+}
+.WdateDiv .WdayTable2 table {
+    border: 0;
+}
+.WdateDiv .WdayTable {
+    line-height: 20px;
+    color: #13777e;
+    background-color: #edfbfb;
+}
+.WdateDiv .WdayTable td {
+    text-align: center;
+}
+.WdateDiv .Wday {
+    color: #333;
+}
+.WdateDiv .Wwday {
+    color: #333;
+}
+.WdateDiv .Wtoday {
+    color: #fff;
+    background: #ff9600;
+}
+.WdateDiv .WspecialDay {
+    background-color: #66F4DF;
+}
+.WdateDiv .WotherDay {
+    color: #D4D4D4;
+}
+.WdateDiv #dpTime {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.WdateDiv #dpTime #dpTimeStr {
+    display: inline-block;
+    width: 30px;
+    color: #7d7d7d;
+}
+.WdateDiv #dpTime input {
+    width: 25px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #333;
+    border: #D9D9D9 1px solid;
+    margin: 0;
+    padding: 0;
+}
+.WdateDiv #dpTime .tm {
+    width: 7px;
+    border: none;
+    background: #f5f5f5;
+}
+.WdateDiv #dpQS {
+    float: left;
+    margin: 5px;
+    margin-top: 7px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background-position: 0 -90px;
+}
+.WdateDiv #dpControl {
+    text-align: center;
+    margin-top: 3px;
+}
+.WdateDiv .dpButton {
+    margin-left: 2px;
+    line-height: 24px;
+    width: 48px;
+    background-color: #ff9600;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.WdateDiv .dpButton:hover {
+    background-color: #ff5a00;
+}
+.WdateDiv .hhMenu, .WdateDiv .mmMenu, .WdateDiv .ssMenu {
+    position: absolute;
+    font-size: 12px;
+    color: #333;
+    border: solid 1px #DEDEDE;
+    background-color: #F2F0F1;
+    padding: 3px;
+}
+.WdateDiv #dpTime .menu, .WdateDiv #dpTime .menuOn {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    background: #fff;
+}
+.WdateDiv #dpTime .menuOn {
+    background: #2a91ca;
+}
+.WdateDiv #dpTime td {
+    background: #f5f5f5;
+    width: 100%;
+    padding: 2px 1px;
+    text-align: center;
+    border-radius: 2px;
+}
+.WdateDiv .hhMenu {
+    top: -100px !important;
+    left: 20px !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+}
+.WdateDiv .mmMenu {
+    top: -56px !important;
+    left: 55px !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+}
+.WdateDiv .ssMenu {
+    top: -34px !important;
+    left: 100px !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+}
+.WdateDiv .invalidMenu, .WdateDiv .WinvalidDay {
+    color: #aaa;
+}
+.WdateDiv .WdayOn, .WdateDiv .WwdayOn, .WdateDiv .Wselday, .WdateDiv .WotherDayOn {
+    background-color: #2a91ca;
+    color: #fff;
+    border-radius: 2px;
+}
+.WdateDiv #dpTime #dpTimeUp, .WdateDiv #dpTime #dpTimeDown {
+    display: none;
+}
+
+#dpTodayInput , #dpClearInput{background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;}
+
+    #dpTodayInput:hover , #dpClearInput:hover{background-color: #f5f5f5;}

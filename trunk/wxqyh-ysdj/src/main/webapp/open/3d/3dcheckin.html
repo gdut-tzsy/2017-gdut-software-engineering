@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
+		<meta name="description" content="企微云平台，基于企业微信，腾讯微信官方推荐企业微信第三方应用第一品牌，专注为企业提供微信办公云服务，帮助企业向移动互联转型。企业可以通过企微云平台实现日常运营管理、移动沟通协作、移动销售管理、企业内部全员营销、移动信息采集等">
+<meta name="keywords" content="微信企业号,企业微信,企微,企微云平台,微信办公平台,企业号第三方应用,微信企业号第三方,企业号服务商">
+<title>企微云平台-微信企业号官方推荐企业云办公第一品牌 | 微信办公</title>
+
+		<link rel="stylesheet" href="css/3d.css">
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/getData.js"></script>
+		<script src="js/three.min.js"></script>
+		<script src="js/tween.min.js"></script>
+		<script src="js/CSS3DRenderer.js"></script>
+	</head>
+	<style>
+
+	</style>
+
+	<body>
+		<div class="sign_num">
+			<span class="sign_box">
+				<span class="num">0</span><br>
+			<span class="font">
+					<span class="">已签到</span>
+			</span>
+			</span>
+		</div>
+		<div id="container"></div>
+		<canvas class="canvas" style="width:100%;height:100%;display:none"></canvas>
+
+		<script type="text/javascript">
+			var dataIndex = 0,
+				signIndex = 0;
+			var ajaxData = [];
+			for (var i = 0; i < 300; i++) {
+				ajaxData.push({
+					qy_logo: 'img/logo.png'
+				});
+			};
+			var personArray = [],
+				is_show_info = 0,
+				sign_persons = ajaxData.length < 100 ? 100 : ajaxData.length, //越大地球越密集
+				edit_personArray = [],
+				table = [],
+				avatar = [];
+			$.each(ajaxData, function(i, e) {
+				table[i] = {};
+				avatar[i] = e.qy_logo;
+				table[i].src = e.qy_logo;
+				table[i].p_x = i % 30 + 1;
+				table[i].p_y = Math.floor(i / 30) + 1;
+			});
+			var table_time = 10,
+				tables_time = 10,
+				sphere_time = 20,
+				helix_time = grid_time = 40,
+				text = '企微云平台',
+				line = 0;
+			var logo_url = 'img/active_3d_logo1.png';
+			//var logo_url = '';
+			if (logo_url != '') {
+				if (logo_url.indexOf("logo") > -1) {
+					logo_url = 'img/active_3d_logo1.png';
+				} else {
+					logo_url = 'img/active_3d_logo1.png';
+				}
+			};
+			if (logo_url == '' && text != '') {
+				if (text.toString().indexOf('/') != -1) {
+					line = 1;
+				}
+			};
+			var gap = parseInt(10);
+			if ($(window).width() < 1050) {
+				gap = 8;
+			};
+			var newPic = new Array();
+			var signNo = 0;
+			setInterval(function() {
+				if (newPic.length > 0) {
+					var firstInfo = newPic.shift();
+					var showImg = firstInfo.image;
+					personArray.push(firstInfo);
+					if (personArray.length > 500) {
+						personArray = personArray.slice(0, 1);
+					};
+					$('.element').eq(personArray.length - 1).find('img').attr('src', showImg);
+					$(".sign_num .num").text(signIndex)
+				} else {
+					if (personArray.length > 0) {
+						showImg = personArray[signNo].image;
+						signNo = signNo == personArray.length - 1 ? 0 : signNo + 1;
+					}
+				}
+			}, 1000);
+		</script>
+		<script src="js/sign3d.js"></script>
+		<script src="js/sign2d.js"></script>
+		<script type="text/javascript">
+			var new_signer = new Audio();
+			setInterval('get_new_sign_list1()', 1000);
+
+			function get_new_sign_list1() {
+				var headpic = qwimages[dataIndex].headpic;
+				if (dataIndex == qwimages.length - 1) {
+					dataIndex = 0
+				}
+				var tmp = {
+					image: headpic
+				};
+				var person_info = eval(tmp);
+				newPic.push(person_info);
+				dataIndex++;
+				signIndex++;
+			}
+
+			function get_new_data_list() {
+				$.ajax({
+					url: "http://vv.bangongyi.com/party/checkinwall/messages",
+					dataType: "JSON",
+					type: "get",
+					data: {
+						aid: aid,
+						id: id
+					},
+					success: function(data) {
+						var data = window.zzhnokia;
+						if (data.length) {
+							$.each(data, function(key, row) {
+								var tmp = {
+									image: data[Math.floor(Math.random() * 400)].headpic
+								};
+								var person_info = eval(tmp);
+								newPic.push(person_info);
+							});
+						};
+					}
+				});
+			}
+			$(function() {
+				S.init();
+				S.ShapeBuilder.imageFile(logo_url, function(obj) {
+					var obj_text = S.ShapeBuilder.letter(text);
+					var type = 'text';
+					obj.dots.push
+					obj_text.dots.push
+					setTimeout(function() {
+						init(type, obj_text, obj);
+						animate();
+						transform(targets.tables, 2000, 0, tables_time);
+					}, 500);
+				});
+			});
+		</script>
+	</body>
+
+</html>

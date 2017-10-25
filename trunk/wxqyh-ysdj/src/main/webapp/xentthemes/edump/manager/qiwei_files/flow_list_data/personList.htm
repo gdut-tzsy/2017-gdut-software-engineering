@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    var baseURL = "/qwy";var localport = "http://qwyimg.do1.com.cn/fileweb";var compressURL = "http://qwyimg.do1.com.cn/fileweb/compress";var dqdp_csrf_token = "";
+    var downFileURL="/Struts2/fileUploadAction!exportFile.action?filePath=";
+//    if(window!=window.top)
+//        eventAfterDraw=window.top._hideLoading();
+</script>
+
+<link async="true" rel="stylesheet" href="qiwei_files/jquery-ui-1.css" type="text/css"><script async="true" src="qiwei_files/jquery-ui-1.js" type="text/javascript"></script></head><body><div id="id_dqdp_tip" style="position: absolute;"></div>
+
+
+
+    <link rel="stylesheet" type="text/css" href="qiwei_files/style.css">
+    <script src="flow_list_data/jquery-1.js"></script>
+    <script src="qiwei_files/common.js"></script>
+    <script src="qiwei_files/jquery_002.js"></script>
+	<script type="text/javascript" src="qiwei_files/jquery-ui-1.js"></script>
+	<style>
+	.table th, .table td {
+  vertical-align: middle;
+  padding: 8px;
+}
+.table .name_icon img {
+  margin-right: 10px;
+  width: 32px;
+  height: 32px;
+}
+.table .name_icon{
+  padding: 8px 0;
+  text-align: right;
+}
+</style>
+
+
+	<form action="/qwy/contact/contactAction!ajaxSearch.action?searchValue.deptId=&amp;searchValue.isSettingUser=" method="post" id="57a3d3ae613b4778a90b4fe725e883ba" onsubmit="return false;" templateid="default" dqdpcheckpoint="query_form">
+       <input name="userId" value="" id="chooseId" type="hidden">
+       <input name="userId" value="" id="chooseName" type="hidden">
+       <input name="pic" value="" id="picId" type="hidden">
+        <div class="topMainBar clearfix">
+            <div class="fr frMainBar">
+                <div class="searchBox">
+                    <input placeholder="搜索联系人" class="inputSearchBox" name="searchValue.personName" id="" onkeydown="keyDown13();" type="text">
+                    <input class="submitSearchBtn" name="input" onclick="func_57a3d3ae613b4778a90b4fe725e883ba(1);  _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2');loadPageList();" value="" type="button">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        var var_57a3d3ae613b4778a90b4fe725e883ba;
+        var refreshEvent = {ok: function () {
+            func_57a3d3ae613b4778a90b4fe725e883ba(var_57a3d3ae613b4778a90b4fe725e883ba.currPage);
+              _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2');loadPageList();
+        }
+        }; //,fail:,error:
+
+        function func_57a3d3ae613b4778a90b4fe725e883ba(pageIndex) {
+	        $('#57a3d3ae613b4778a90b4fe725e883ba').ajaxSubmit({
+	            dataType: 'json',
+	            data: {page: pageIndex, 'dqdp_csrf_token': dqdp_csrf_token},
+	            async: false,
+	            success: function (result) {
+	                if ("0" == result.code) {
+	                    var_57a3d3ae613b4778a90b4fe725e883ba = result.data;
+	                } else {
+	                    $("#tip").error({title: "信息提示层", content: result.desc, button: [
+	                        {text: "确定", events: "test"},
+	                        {text: "取消", events: "test"}
+	                    ]});
+	                }
+	            },
+	            error: function () {
+	                _alert("信息提示层", "网络异常");
+	            }
+	        });
+        }
+        func_57a3d3ae613b4778a90b4fe725e883ba(1);
+          _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2');
+    </script>
+
+
+
+
+    <div class="contactTable mt15" datasrc="local:var_57a3d3ae613b4778a90b4fe725e883ba" id="cc94a9ec68ff4d93a7fd5934c581b647" delurl="/qwy/contact/contactAction!ajaxBatchDelete.action" editurl="/qwy/manager/addressbook/contact/edit.jsp" addurl="/qwy/manager/addressbook/contact/add.jsp" viewurl="/qwy/manager/addressbook/contact/info.jsp" templateid="default">
+        <table class="table table-line table-hover">
+            <thead>
+                <tr templateid="default" dqdpcheckpoint="list_title">
+                	<th width="20"><input class="form-checkbox" onclick="_doCheck(this,'ids');checkAll();" id="userIds" type="checkbox"></th>
+                	<th width="30"></th> 
+                    <th>姓名</th>
+                    <th>账号</th>
+                    <th>手机号</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="0f73b565-e902-4fef-8f3b-7b281c839fc4" name="ids" onclick="check('0f73b565e9024fef8f3b7b281c839fc4','黄宝顺','http://shp.qpic.cn/bizmp/MWv3eHE6PC42Ib6M1K6X2cibsLnPfIBOLaYs59H0vKY4gcAic99PNjqw/132')" id="0f73b565e9024fef8f3b7b281c839fc4" type="checkbox"></td>
+                  	<td class="name_icon"><img src="personList_data/132.jpg"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">黄宝顺</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">huangbaoshun</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile">13922119666</td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr><tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="1055bbfc-5aae-4081-bf25-06735bc50bbb" name="ids" onclick="check('1055bbfc5aae4081bf2506735bc50bbb','体验用户11','http://shp.qpic.cn/bizmp/MWv3eHE6PC5yxK8vrA4OL0n6CzCYObA2u8quvdPmqWlJwFnZcH5nfQ/132')" id="1055bbfc5aae4081bf2506735bc50bbb" type="checkbox"></td>
+                  	<td class="name_icon"><img src="personList_data/132_003.jpg"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">体验用户11</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">chenwu</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile">13826297038</td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr><tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="133d76ea-4684-4a55-ae00-ad1b4b2087b7" name="ids" onclick="check('133d76ea46844a55ae00ad1b4b2087b7','王汉生','http://shp.qpic.cn/bizmp/MWv3eHE6PC7lIXHjBl6avNRY4H5eMics6caNjO5icclfbPfS9kP5JTaQ/132')" id="133d76ea46844a55ae00ad1b4b2087b7" type="checkbox"></td>
+                  	<td class="name_icon"><img src="personList_data/132_007.jpg"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">王汉生</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">wanghansheng2</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile">13760706280</td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr><tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="18ac1875-5747-4248-86cc-0a8f5da1d01f" name="ids" onclick="check('18ac18755747424886cc0a8f5da1d01f','赵洁','http://shp.qpic.cn/bizmp/MWv3eHE6PC6gcgicrWibw2EIsN3Kp5ibZtd17LjkQoGHRmcYiaGKjDysRg/132')" id="18ac18755747424886cc0a8f5da1d01f" type="checkbox"></td>
+                  	<td class="name_icon"><img src="personList_data/132_004.jpg"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">赵洁</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">zhaojie</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile">13999802583</td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr><tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="191a7686-00b1-497b-a37b-286b7b6875ec" name="ids" onclick="check('191a768600b1497ba37b286b7b6875ec','体验用户10','http://shp.qpic.cn/bizmp/MWv3eHE6PC5yxK8vrA4OL0n6CzCYObA2gQFGjA62nuicylQ2TNUy09Q/132')" id="191a768600b1497ba37b286b7b6875ec" type="checkbox"></td>
+                  	<td class="name_icon"><img src="personList_data/132_005.jpg"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">体验用户10</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">fjn</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile">13381218735</td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr><tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="19a81754-9d41-4165-ba22-f90a0a3e7497" name="ids" onclick="check('19a817549d414165ba22f90a0a3e7497','用户体验9','0')" id="19a817549d414165ba22f90a0a3e7497" type="checkbox"></td>
+                  	<td class="name_icon"><img src="personList_data/0.htm"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">用户体验9</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">liaowenfu</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile">18602049784</td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr><tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="232061e5-be68-4f49-a6af-bf422226bc1d" name="ids" onclick="check('232061e5be684f49a6afbf422226bc1d','用户体验20','0')" id="232061e5be684f49a6afbf422226bc1d" type="checkbox"></td>
+                  	<td class="name_icon"><img src="personList_data/0.htm"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">用户体验20</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">zeng139</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile">13903006264</td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr><tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="299fc220-1757-4559-931a-2d995b7eaec7" name="ids" onclick="check('299fc22017574559931a2d995b7eaec7','成健敏','http://shp.qpic.cn/bizmp/MWv3eHE6PC4VwaCqdysBQqG9Y3hNtSusgZ6EaItg19QXWSeia20t3Yg/132')" id="299fc22017574559931a2d995b7eaec7" type="checkbox"></td>
+                  	<td class="name_icon"><img src="groupList_data/132.jpg"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">成健敏</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">laiman1103</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile"></td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr><tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="2ddee2e9-0732-4006-b2e9-afc832fdb161" name="ids" onclick="check('2ddee2e907324006b2e9afc832fdb161','王晶波','http://shp.qpic.cn/bizmp/MWv3eHE6PC6VeuepyTiay05WKtkIuA8glGneBMcicnFmkUVbhtWU3NvA/132')" id="2ddee2e907324006b2e9afc832fdb161" type="checkbox"></td>
+                  	<td class="name_icon"><img src="personList_data/132_006.jpg"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">王晶波</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">wangjb</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile">13602715172</td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr><tr listsourcebackup="false" name="pageData" templateid="default" dqdpcheckpoint="list_value">
+                	<td><input defaultvalue="" class="form-checkbox" value="30bb53f2-e431-4c52-85c7-1233113b681c" name="ids" onclick="check('30bb53f2e4314c5285c71233113b681c','用户体验20','http://shp.qpic.cn/bizmp/MWv3eHE6PC5XuiacakdrpY96yZMl9ZhO82mBqSKrniaxZFtN66fDib8hA/132')" id="30bb53f2e4314c5285c71233113b681c" type="checkbox"></td>
+                  	<td class="name_icon"><img src="personList_data/132_002.jpg"></td>
+                    <td class="name" name="personName" dqdpcheckpoint="list_field_value_person_name">用户体验20</td>
+                    <td name="wxUserId" dqdpcheckpoint="list_field_value_person_name">wangfang</td>
+                    <td class="name" name="mobile" dqdpcheckpoint="list_field_value_mobile"></td>
+                    <td name="departmentName" dqdpcheckpoint="list_field_value_department_name"></td>
+                    
+                </tr></tbody>
+        </table>
+    </div>
+
+    <div class="bottomPage" datasrc="local:var_57a3d3ae613b4778a90b4fe725e883ba" id="af612ff2d20641c6b2a6d920f1bd8fc2" templateid="default">   <!-- 分页 -->
+
+        <div class="pager-nav">
+            <ul id="pageList"><li class="disabled pager-prev"><a href="#">上一页</a></li><li class="active"><span>1</span></li><li><a href="javascript:func_57a3d3ae613b4778a90b4fe725e883ba(2);%20%20%20_redraw('cc94a9ec68ff4d93a7fd5934c581b647');%20%20_redraw('af612ff2d20641c6b2a6d920f1bd8fc2');%20loadPageList();">2</a></li><li><a href="javascript:func_57a3d3ae613b4778a90b4fe725e883ba(3);%20%20%20_redraw('cc94a9ec68ff4d93a7fd5934c581b647');%20%20_redraw('af612ff2d20641c6b2a6d920f1bd8fc2');%20loadPageList();">3</a></li><li><a href="javascript:func_57a3d3ae613b4778a90b4fe725e883ba(4);%20%20%20_redraw('cc94a9ec68ff4d93a7fd5934c581b647');%20%20_redraw('af612ff2d20641c6b2a6d920f1bd8fc2');%20loadPageList();">4</a></li><li class="pager-next"><a href="javascript:func_57a3d3ae613b4778a90b4fe725e883ba(1+1);%20%20%20_redraw('cc94a9ec68ff4d93a7fd5934c581b647');%20%20_redraw('af612ff2d20641c6b2a6d920f1bd8fc2');%20loadPageList();">下一页</a></li></ul>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+    var choose_user_id = "";
+	var choose_person_name = "";
+	var choose_person_pic="";
+    function check(userId,name,pic){
+    	if(choose_user_id!=""&&choose_user_id!=null){
+    		if(!(choose_user_id.indexOf(userId)>-1)){
+        		choose_user_id = choose_user_id+userId+ "|";
+	   		 	choose_person_name = choose_person_name+name+"|";
+	   		 	choose_person_pic = choose_person_pic+pic+"|";
+    		}else{
+    			choose_user_id=choose_user_id.replace(userId+"|","");
+	        	choose_person_name=choose_person_name.replace(name+"|","");
+	        	choose_person_pic = choose_person_pic.replace(pic+"|","");
+    		}
+    	}else{
+    		choose_user_id = userId+ "|";
+   		 	choose_person_name = name+ "|";
+   		 	choose_person_pic = pic+"|";
+		}
+    	
+    	//alert(choose_user_id);
+    	$("#chooseId").val(choose_user_id);
+    	$("#chooseName").val(choose_person_name);
+    	$("#picId").val(choose_person_pic);
+    	$(window.parent.$("#chooseIds").val(choose_user_id));
+    	$(window.parent.$("#chooseNames").val(choose_person_name));
+    	$(window.parent.$("#picIds").val(choose_person_pic));
+    	if(choose_user_id==""&&choose_user_id==null){
+    		$(window.parent.$("#userCount1").html("(0)"));
+    	}else{
+    		var users=choose_user_id.split("\|");
+    		var num=users.length-1;
+        	$(window.parent.$("#userCount1").html("("+num+")"));
+    	}
+    	
+    	//$(window.parent.$("#userCount1").html("("+chooseCount+")"));
+    }
+    function checkAll(){
+    	var list=var_57a3d3ae613b4778a90b4fe725e883ba.pageData;
+    	if(choose_user_id!=""&&choose_user_id!=null){
+    		for ( var i = 0; i < list.length; i++) {
+        		if(choose_user_id.indexOf(list[i].userId)>-1){
+        			choose_user_id=choose_user_id.replace(list[i].userId+"|","");
+    	        	choose_person_name=choose_person_name.replace(list[i].personName+"|","");
+    	        	choose_person_pic = choose_person_pic.replace(list[i].headPic+"|","");
+        		}
+        	}
+    	}
+    	if(document.getElementById("userIds").checked){
+    		for ( var i = 0; i < list.length; i++) {
+    			choose_user_id =choose_user_id+list[i].userId+ "|";
+		        choose_person_name =choose_person_name+ list[i].personName+ "|";
+		        choose_person_pic = choose_person_pic+list[i].headPic+"|";
+			}
+    	} 
+    	
+    	$("#chooseId").val(choose_user_id);
+    	$("#chooseName").val(choose_person_name);
+    	$("#picId").val(choose_person_pic);
+    	$(window.parent.$("#chooseIds").val(choose_user_id));
+    	$(window.parent.$("#chooseNames").val(choose_person_name));
+    	$(window.parent.$("#picIds").val(choose_person_pic));
+    	if(choose_user_id!=""&&choose_user_id!=null){
+    		var users=choose_user_id.split("\|");
+    		var num=users.length-1;
+        	$(window.parent.$("#userCount1").html("("+num+")"));
+    	}else{
+    		$(window.parent.$("#userCount1").html("(0)"));
+    	}
+    	
+    	//alert(choose_user_id);
+    }
+       
+        function keyDown13(){
+        	var event = arguments.callee.caller.arguments[0] || window.event;
+        	if(event.keyCode == 13){//判断是否按了回车，enter的keycode代码是13，想看其他代码请猛戳这里。
+        		func_57a3d3ae613b4778a90b4fe725e883ba(1); 
+        	_redraw('cc94a9ec68ff4d93a7fd5934c581b647');  
+        	_redraw('af612ff2d20641c6b2a6d920f1bd8fc2');
+        	loadPageList();
+        	}
+        }
+
+        function loadPageList(){
+            $('#pageList').html('');
+            var maxPage = var_57a3d3ae613b4778a90b4fe725e883ba.maxPage;
+            var currPage = var_57a3d3ae613b4778a90b4fe725e883ba.currPage;
+            var totalRows = var_57a3d3ae613b4778a90b4fe725e883ba.totalRows;
+            //没有记录
+            if(maxPage <= 1 ){
+                $('#pageList').append("<li class=\"disabled pager-prev\"><a  href=\"#\">上一页</a></li><li class=\"disabled pager-next\"><a href=\"#\">下一页</a></li>");
+            }else{
+                //有记录
+                if(currPage == 1){
+                    $('#pageList').append("<li class=\"disabled pager-prev\"><a href=\"#\">上一页</a></li>");
+                }else{
+                    $('#pageList').append("<li class=\"pager-prev\"><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba("+currPage+"-1);   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList();\">上一页</a></li>");
+                }
+
+                if(maxPage < 11){
+                    for (var i=1; i<= maxPage; i++) {
+                        if(currPage == i){
+                            $('#pageList').append("<li class=\"active\"><span>"+i+"</span></li>");
+                        }else{
+                            $('#pageList').append("<li><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba("+i+");   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList(); \">"+i+"</a></li>");
+                        }
+                    }
+                }else{
+                    if(currPage <= 5){
+                        for (var i=1; i<= 8; i++) {
+                            if(currPage == i){
+                                $('#pageList').append("<li class=\"active\"><span>"+i+"</span></li>");
+                            }else{
+                                $('#pageList').append("<li><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba("+i+");   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList(); \">"+i+"</a></li>");
+                            }
+                        }
+                        $('#pageList').append("<li><span>...</span></li>");
+                        $('#pageList').append("<li><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba("+maxPage+");   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList(); \">"+maxPage+"</a></li>");
+                    }else if(maxPage - currPage <= 4 ){
+                        $('#pageList').append("<li><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba(1);   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList(); \">1</a></li>");
+                        $('#pageList').append("<li><span>...</span></li>");
+                        for (var i =  currPage - 3; i<= maxPage; i++) {
+                            if(currPage == i){
+                                $('#pageList').append("<li class=\"active\"><span>"+i+"</span></li>");
+                            }else{
+                                $('#pageList').append("<li><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba("+i+");   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList(); \">"+i+"</a></li>");
+                            }
+                        }
+                    }else{
+                        $('#pageList').append("<li><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba(1);   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList(); \">1</a></li>");
+                        $('#pageList').append("<li><span>...</span></li>");
+                        for (var i = currPage -3; i<= currPage+3; i++) {
+                            if(currPage == i){
+                                $('#pageList').append("<li class=\"active\"><span>"+i+"</span></li>");
+                            }else{
+                                $('#pageList').append("<li><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba("+i+");   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList(); \">"+i+"</a></li>");
+                            }
+                        }
+                        $('#pageList').append("<li><span>...</span></li>");
+                        $('#pageList').append("<li><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba("+maxPage+");   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList(); \">"+maxPage+"</a></li>");
+                    }
+
+                }
+
+                if(currPage == maxPage){
+                    $('#pageList').append("<li class=\"disabled pager-next\"><a href=\"#\">下一页</a></li>");
+                }else{
+                    $('#pageList').append("<li class=\"pager-next\"><a href=\"javascript:func_57a3d3ae613b4778a90b4fe725e883ba("+currPage+"+1);   _redraw('cc94a9ec68ff4d93a7fd5934c581b647');  _redraw('af612ff2d20641c6b2a6d920f1bd8fc2'); loadPageList(); \">下一页</a></li>");
+                }
+
+            }
+            $('.lasttd').on({
+				mouseover:function(){
+					if(navigator.userAgent.toUpperCase().indexOf("MSIE")>-1){				
+						$(this).find('.lasttdpop').css({'display':'block'});$(this).children('.contact_action').addClass('after')					
+					}else{
+						$(this).find('.lasttdpop').css({'display':'flex'});$(this).children('.contact_action').addClass('after')}},
+				mouseout:function(){$(this).find('.lasttdpop').hide();$(this).children('.contact_action').attr('class','contact_action')}
+			});  
+            
+        	//doCheckbox(); 
+        	initUser();
+        	_resetFrameHeight();
+        }
+        
+        function  doCheckbox(){
+        	var userIds=window.parent.$("#chooseIds").val();
+        	//alert(userIds);
+        	if(choose_user_id!=""&&choose_user_id!=null){
+        		var count=0;
+        		$("#chooseId").val(userIds);
+            	var userList=choose_user_id.split("\|");
+            	for(var i=0;i<userList.length;i++){
+            		$("#"+userList[i]).attr('checked','true');
+            		count++;
+            	}
+            	var list=var_57a3d3ae613b4778a90b4fe725e883ba.pageData;
+            	if(count==list.length){
+            		$("#userIds").attr('checked','true');
+            	}
+        	}
+        }
+
+          $(document).ready(function () {
+            loadPageList();
+            //$('#af612ff2d20641c6b2a6d920f1bd8fc2').css("height","200px")
+            var departId='';
+            $(window.parent.$("#chooseDepartId").val(departId));
+            choose_user_id=window.parent.$("#chooseIds").val();
+        	choose_person_name=window.parent.$("#chooseNames").val();
+        	choose_person_pic=window.parent.$("#picIds").val();
+        	$("#chooseId").val(choose_user_id);
+        	$("#chooseName").val(choose_person_name);
+        	$("#picId").val(choose_person_pic);
+        	if(choose_user_id!=""&&choose_user_id!=null){
+        		var count=0;
+        		var list=var_57a3d3ae613b4778a90b4fe725e883ba.pageData;
+            	for(var i=0;i<list.length;i++){
+            		if((choose_user_id.indexOf(list[i].userId)>-1)){
+            			$("#"+list[i].userId).attr('checked',true);
+            			count++;
+                	}else{
+                		$("#"+list[i].userId).attr('checked',false);
+                	}
+            	}
+            	if(count==list.length){
+            		$("#userIds").attr('checked',true);
+            	}else{
+            		$("#userIds").attr('checked',false);
+            	}
+        	}
+        });  
+        
+        function initUser(){
+        	choose_user_id=window.parent.$("#chooseIds").val();
+        	choose_person_name=window.parent.$("#chooseNames").val();
+        	choose_person_pic=window.parent.$("#picIds").val();
+        	$("#chooseId").val(choose_user_id);
+        	$("#chooseName").val(choose_person_name);
+        	$("#picId").val(choose_person_pic);
+        	if(choose_user_id!=""&&choose_user_id!=null){
+        		var count=0;
+        		var list=var_57a3d3ae613b4778a90b4fe725e883ba.pageData;
+            	for(var i=0;i<list.length;i++){
+            		if((choose_user_id.indexOf(list[i].userId)>-1)){
+            			$("#"+list[i].userId).attr('checked',true);
+            			count++;
+                	}else{
+                		$("#"+list[i].userId).attr('checked',false);
+                	}
+            	}
+            	if(count==list.length){
+            		$("#userIds").attr('checked',true);
+            	}else{
+            		$("#userIds").attr('checked',false);
+            	}
+        	}
+        }
+
+    </script>
+
+
+</body></html>

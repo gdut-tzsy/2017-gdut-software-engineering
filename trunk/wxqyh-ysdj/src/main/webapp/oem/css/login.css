@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    font-family: Microsoft Yahei;
+    line-height: 1.428
+}
+
+ul,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input,img {
+    border: none;
+}
+
+input {
+    font: inherit;
+    outline: none;
+}
+
+input[type="button"],input[type="submit"] {
+    cursor: pointer;
+}
+
+#wrap {
+    position: relative;
+    height: 648px;
+    background: url(../images/bg.jpg) no-repeat center;
+}
+
+#container,#login_box {
+    margin-left: auto;
+    margin-right: auto
+}
+
+#container {
+    width: 960px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#top:after,.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+#top,#top a {
+    color: #fff
+}
+
+.top_right {
+    float: right;
+}
+
+.logo,.logo_text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo {
+    width: 106px;
+    height: 30px;
+}
+
+.logo_text {
+    font-size: 24px;
+    margin-left: 10px
+}
+
+.more {
+    position: relative;
+    display: inline-block;
+    margin-left: 50px;
+    height: 30px;
+}
+
+#login_box {
+    width: 340px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 90px;
+    margin-bottom: 130px;
+    background: rgba(255, 255, 255, .6);
+    background-color: #f2f2f2\9;
+    border-radius: 5px;
+}
+
+.login_tab {
+    overflow: hidden;
+}
+
+.login_tab li {
+    float: left;
+    display: inline;
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #808080;
+    font-size: 24px;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+}
+
+.login_tab li.curr {
+    color: #333;
+    border-bottom-color: #ffa300
+}
+
+.login_content {
+    padding: 10px 30px;
+    margin-top: 20px;
+}
+
+.login_content li {
+    margin-bottom: 20px;
+}
+
+.accout,.password {
+    width: 240px;
+    height: 40px;
+    line-height: 40px\9;
+    padding-left: 40px;
+    font-size: 14px
+}
+
+.accout {
+    background: url(../images/user.png) no-repeat 10px;
+    background-color: #fff
+}
+
+.password {
+    background: url(../images/pwd.png) no-repeat 10px;
+    background-color: #fff
+}
+
+.forget_pwd {
+    display: block;
+    padding-top: 5px;
+    text-align: right;
+    color: #808080;
+    font-size: 14px;
+}
+
+.submit_btn {
+    width: 280px;
+    height: 40px;
+    background-color: #ffa300;
+    font-size: 18px;
+    text-align: center;
+    color: #fff
+}
+
+.copyright {
+    font-size: 12px;
+    text-align: center;
+    color: #fff
+}
+
+.cat_tree {
+    position: absolute;
+    top: 28px;
+    right: 0;
+    padding: 10px 10px 5px 10px;
+    background: rgba(0, 0, 0, .6);
+    background-color: #f2f2f2\9;
+    display: none;
+}
+
+#top .cat_tree a {
+    display: block;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    font-size: 14px;
+    color: #333\9;
+}

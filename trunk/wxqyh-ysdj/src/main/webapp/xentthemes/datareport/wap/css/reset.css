@@ -1,0 +1,54 @@
+@charset "utf-8";
+html,body{width:100%;height:100%;-webkit-text-size-adjust:none;-webkit-tap-highlight-color:transparent;}	
+body {-webkit-overflow-scrolling:touch;font:14px/1.5 Verdana, Microsoft YaHei, Helvetica, Arial, Hiragino Sans GB, sans-serif, Simsun;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,hr{margin:0;padding:0; }
+table{border-collapse:collapse; border-spacing:0;}
+fieldset,img,input,button,abbr{border:0 none;}
+caption,th,cite,em,strong,var,b,i,code,dfn,address{font-style:normal;}
+caption,th,em,strong,b {font-weight:normal;}
+ol,ul,li{list-style-type:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+input,textarea,optgroup,option,select,button{vertical-align: middle;font:inherit;}	/*文本域默认是不会继承其他字体的样式的，所以设置继承上级字体样式*/
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+select {appearance:none;-webkit-appearance:none;border: none;}
+textarea {resize:none;}
+input[type="search"]::-webkit-search-decoration {-webkit-appearance:textfield}
+button,input[type="submit"],input[type="button"] {cursor:pointer;}
+a, a:active, :focus {outline:none}
+a {text-decoration:none;color:#333;}
+a:hover{text-decoration:none;}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;margin:0;padding: 0}	/* 设置HTML5元素为块 */
+img,embed,video,object,iframe {max-width:100%;vertical-align:middle;}	
+code, kbd, pre, samp { font-family: monospace;}
+pre{
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/*=======文字排版 start======*/
+.f10{font-size:10px;}
+.f12{font-size:12px;}
+.f13{font-size:13px;}
+.f14{font-size:14px;}
+.f15{font-size:15px;}
+.f16{font-size:16px;}
+.f18{font-size:18px;}
+.f20{font-size:20px;}
+.f24{font-size:24px;}
+
+.fwb{font-weight:bold;}
+.fwn{font-weight:normal;}
+.ti2{text-indent:2em;}/*移动设备下，text-indent在input框的支持性不好，建议使用padding-left缩进*/
+.ti3{text-indent:3em;}
+
+.unl{text-decoration:underline;}
+.none_unl {text-decoration:none;}
+
+.tl{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+/*=======文字排版 end======*/

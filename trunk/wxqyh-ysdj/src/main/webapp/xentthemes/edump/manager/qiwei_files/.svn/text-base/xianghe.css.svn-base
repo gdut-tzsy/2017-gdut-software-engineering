@@ -1,0 +1,3 @@
+@charset utf8;
+
+.date-ico {background: url(../images/date.png) no-repeat;}

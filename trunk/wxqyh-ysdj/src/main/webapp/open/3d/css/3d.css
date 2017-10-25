@@ -1,0 +1,208 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,
+li,
+ol {
+	list-style: none;
+}
+
+.mr10 {
+	margin-right: 10px;
+}
+
+.ml5 {
+	margin-left: 5px;
+}
+
+.mt60 {
+	margin-top: 60px;
+}
+
+
+/*body {
+	background: url(../img/3dbg.jpg) no-repeat center 0 #ba1023;
+	font-family: "Microsoft yahei", "SimHei";
+	font-size: 16px;
+	word-wrap: break-word;
+	word-break: break-all;
+}*/
+
+body {
+	padding: 0;
+	margin: 0;
+	font: 12px/18px microsoft yahei, arial!important;
+	background-image: url('../img/active_3dbg.jpg');
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+
+img {
+	vertical-align: middle;
+}
+
+.demo3d {
+	width: 900px;
+	min-height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 100px 50px;
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	perspective: 800px;
+	-webkit-transition: top .5s;
+	position: relative;
+	top: 0;
+}
+
+.box3d {
+	width: 60px;
+	height: 60px;
+	margin-left: -30px;
+	-webkit-transition: -webkit-transform 1s;
+	-moz-transition: -moz-transform 1s;
+	transition: transform 1s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	position: absolute;
+	left: 50%;
+}
+
+.box3d ul li {
+	width: 60px;
+	height: 60px;
+	-webkit-transition: opacity 1s, -webkit-transform 1s;
+	-moz-transition: opacity 1s, -moz-transform 1s;
+	transition: opacity 1s, transform 1s;
+	position: absolute;
+	bottom: 0;
+	opacity: 0.2;
+	background: #fff;
+}
+
+.sign_num {
+	text-align: right;
+	background-color: rgba(255, 255, 255, 0.102);
+	margin: auto;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 100;
+	border-radius:5px;
+}
+
+.sign_box {
+	opacity: 0.6;
+	padding:10px;
+	color: #fff;
+	display: inline-block;
+	text-align: center;
+}
+
+.sign_box .num {
+	font-size: 42px;
+	line-height: 46px;
+}
+
+.sign_box .font {
+	font-size: 22px;
+	line-height: 26px;
+}
+
+
+.join_word {
+	background-color: #000;
+	color: #fff;
+	text-align: Center;
+	font-size: 24px;
+	min-height: 40px;
+	line-height: 40px;
+	display: none;
+	padding: 10px 0;
+	word-break: break-all;
+}
+
+.loading {
+	display: table;
+	position: absolute;
+	background-color: #333;
+	opacity: 0.8;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.loading_card {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	height: 100%;
+}
+
+.element {
+	border-radius: 10%;
+	border: 1px solid rgba(127, 255, 255, 0.25);
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	overflow: hidden;
+	cursor: default;
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
+}
+
+.element:hover {
+	border: 1px solid rgba(127, 255, 255, 0.75);
+	box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.75);
+}
+
+.element img {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.element .number {
+	top: 20px;
+	right: 20px;
+	color: rgba(127, 255, 255, 0.75);
+	font-size: 12px;
+	position: absolute;
+}
+
+.element .symbol {
+	left: 0px;
+	top: 40px;
+	right: 0px;
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 60px;
+	font-weight: bold;
+	position: absolute;
+	text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.95);
+}
+
+.element .details {
+	left: 0px;
+	right: 0px;
+	bottom: 15px;
+	color: rgba(127, 255, 255, 0.75);
+	font-size: 12px;
+	position: absolute;
+}

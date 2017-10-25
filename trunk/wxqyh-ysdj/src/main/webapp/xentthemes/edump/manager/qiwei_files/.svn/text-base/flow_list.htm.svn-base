@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+    
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <script>
+            var baseURL = "/qwy";
+            var localport = "http://qwyimg.do1.com.cn/fileweb";
+            var compressURL = "http://qwyimg.do1.com.cn/fileweb/compress";
+            var dqdp_csrf_token = "";
+            var downFileURL = "/Struts2/fileUploadAction!exportFile.action?filePath=";
+            //    if(window!=window.top)
+            //        eventAfterDraw=window.top._hideLoading();
+            
+        </script>
+        <link async="true" rel="stylesheet" href="qiwei_files/jquery-ui-1.css"
+        type="text/css">
+        <script async="true" src="qiwei_files/jquery-ui-1.js" type="text/javascript">
+        </script>
+        <link type="text/css" rel="stylesheet" href="qiwei_files/WdatePicker.css">
+    </head>
+    
+    <body class="flow">
+        <div id="id_dqdp_tip" style="position: absolute;">
+        </div>
+        <script type="text/javascript">
+            var _dqdp_dict = {};
+            var _dqdp_permissions = {
+                flowadd: true
+            };
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="keywords" content="企微,企业微信,移动办公">
+        <meta name="description" content="">
+        <title>
+            企微云平台—微信企业号免费应用管理平台
+        </title>
+        <link rel="stylesheet" href="flow_list_data/zTreeStyle.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="qiwei_files/style.css">
+        <link rel="stylesheet" type="text/css" href="flow_list_data/ku.css">
+        <script src="flow_list_data/jquery-1.js">
+        </script>
+        <script src="qiwei_files/jquery_002.js">
+        </script>
+        <script src="qiwei_files/common.js">
+        </script>
+        <script src="flow_list_data/flow_node.js">
+        </script>
+        <script src="flow_list_data/ajaxfileupload-2.js">
+        </script>
+        <script src="flow_list_data/kindeditor.js">
+        </script>
+        <script src="flow_list_data/zh_CN.js">
+        </script>
+        <script src="flow_list_data/jquery_002.js">
+        </script>
+        <!-- 上传媒体文件引入 start -->
+        <script src="flow_list_data/uploadfile.js">
+        </script>
+        <!-- 上传媒体文件引入 end -->
+        <div class="topMainBar clearfix" id="back">
+            <div class="fl flMainBar">
+                <a href="javascript:history.back();" class="btn twoBtn">
+                    返回
+                </a>
+            </div>
+            <div class="fr frMainBar">
+            </div>
+        </div>
+        <div class="cPage">
+            <div class="cTitle">
+                <h3>
+                    新增流程
+                </h3>
+            </div>
+            <div class="cMain">
+                <div class="previewDiv" style="display: none">
+                    <h3 id="h3Title">
+                        流程图
+                    </h3>
+                    <p class="img">
+                        <img id="imgFlowMsg" src="flow_list_data/img271123.htm" style="width: 271px;height: 123px">
+                    </p>
+                </div>
+                <form action="/qwy/flow/flowAction!ajaxAdd.action" method="post" id="78d208b19bd54725be55c1843a07c319"
+                onsubmit="return false;" templateid="default" class="form" dqdpcheckpoint="add_form">
+                    <div id="flow_node_div_info" style="display: none">
+                    </div>
+                    <div class="form-item">
+                        <label class="fl mr10">
+                            <span class="mustInput">
+                                *
+                            </span>
+                            流程名称：
+                        </label>
+                        <div class="form-field">
+                            <input name="flowTemplatePO.flowName" id="flowName" valid="{must:true,length:30,fieldType:'pattern',regex:'^.*$',tip:'流程名称'}"
+                            class="form-text" oninput="$('#h3Title').html($('#title').val())" placeholder="填写名称（建议最多20字）"
+                            type="text">
+                        </div>
+                    </div>
+                    <div class="form-item line36 mt20">
+                        <label class="fl mr10 mt5">
+                            <span class="mustInput">
+                                *
+                            </span>
+                            流程分组：
+                        </label>
+                        <div class="form-field">
+                            <input name="flowTemplatePO.groupId" id="flow_groupId" valid="{must:true,fieldType:'pattern',regex:'^.*$',tip:'流程分组'}"
+                            value="" type="hidden">
+                            <a href="javascript:chooseFlowGroup();" class="btn twoBtn">
+                                选择流程分组
+                            </a>
+                            <div class="appendDiv iblock" id="groupNames">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 目标对象选择 -->
+                    <div class="form-item mt10">
+                        <label for="">
+                            目标对象：
+                            <span class="c999">
+                                (可使用该流程的成员)
+                            </span>
+                        </label>
+                        <div class="form-field form-id-num-wrap">
+                            <div class="label_radio active">
+                                <input checked="checked" id="radio_all" name="a1" type="radio">
+                                <label for="radio_all" id="radio_all_id">
+                                    所有人
+                                </label>
+                            </div>
+                            <div class="label_radio">
+                                <input id="radio_specified" name="a1" type="radio">
+                                <label for="radio_specified" id="radio_specified_id">
+                                    特定对象
+                                </label>
+                            </div>
+                            <input id="deptIds" name="deptIds" type="hidden">
+                            <input id="userIds" name="userIds" type="hidden">
+                            <input value="1" id="range" name="range" type="hidden">
+                            <input id="isSetting" name="isSetting" value="0" type="hidden">
+                            <span id="userCountHtml" style="display: none;">
+                            </span>
+                        </div>
+                        <div id="chooseDeptAndUs" style="display: none">
+                            <div class="form-item">
+                                <div class="add_specified">
+                                    <div onclick="AddDepart()">
+                                        添加特定部门
+                                        <span class="selected_num1">
+                                            (0)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="selected_department" id="selected_department">
+                                </div>
+                            </div>
+                            <div class="form-item" id="chooseUserDivId">
+                                <div class="add_specified personnel mt20">
+                                    <div onclick="AddPerson()">
+                                        添加特定人员
+                                        <span class="selected_num2">
+                                            (0)
+                                        </span>
+                                    </div>
+                                    <div onclick="AddGroup()">
+                                        按群组选择
+                                    </div>
+                                </div>
+                                <div class="selected_personnel mt20" id="selected_personnel">
+                                </div>
+                                <a class="amore" id="amore">
+                                    查看全部&gt;
+                                </a>
+                            </div>
+                        </div>
+                        <div id="more-pop-bg" class="overlay" style="display:none">
+                        </div>
+                        <div id="more-pop">
+                            <h2>
+                                <div class="more-pop-tit">
+                                    特定人员
+                                    <span class="num">
+                                        (22)
+                                    </span>
+                                </div>
+                                <span class="more-pop-add">
+                                    添加
+                                </span>
+                                <span class="more-pop-close" id="more-pop-close">
+                                    x
+                                </span>
+                            </h2>
+                            <div class="more-pop-con" id="more-pop-con">
+                            </div>
+                            <div class="more-footer">
+                                <span>
+                                    确定
+                                </span>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(function() {
+                                var chooseType = $("#chooseType").val();
+                                if (chooseType && chooseType == "1") {
+                                    $("#chooseUserDivId").hide();
+                                }
+                                $('.label_radio').click(function() {
+                                    $(this).addClass('active').siblings('.label_radio').removeClass('active');
+                                    $(this).children('input').attr('checked', 'true');
+                                    if ($(this).children('input').attr('id') == 'radio_specified') {
+                                        $("#range").val("3");
+                                        $("#chooseDeptAndUs").show();
+                                        init();
+                                        usersinit();
+                                        groupInit();
+                                    } else {
+                                        $("#range").val("1");
+                                        $("#chooseDeptAndUs").hide();
+                                    }
+                                }) $('#more-pop-close').click(function() {
+                                    $('#more-pop').hide();
+                                    $('#more-pop-bg').hide();
+                                }) $('.more-footer span').click(function() {
+                                    $('#more-pop').hide();
+                                    $('#more-pop-bg').hide();
+                                }) $('.more-pop-add').click(function() {
+                                    $('#more-pop').hide();
+                                    $('#more-pop-bg').hide();
+                                    AddPerson();
+                                })
+                            })
+
+                            function AddDepart() {
+                                $("#personFrame2").attr("src", "/qwy/manager/include/deptList.jsp?isSettingDep=" + $("#isSetting").val());
+                                $("#chooseDeptAndUs").hide();
+                                $("#back2").hide();
+                                $(".cPage").hide();
+                                $("#back").hide();
+                                $("#chooseDept").show();
+                                init();
+                            }
+
+                            function AddPerson() {
+                                $("#personFrame").attr("src", "/qwy/manager/include/personList.jsp?isSettingUser=" + $("#isSetting").val());
+                                $("#chooseDeptAndUs").hide();
+                                $("#back2").hide();
+                                $(".cPage").hide();
+                                $("#back").hide();
+                                $("#chooseUsers").show();
+                            }
+
+                            function AddGroup() {
+                                $("#chooseDeptAndUs").hide();
+                                $("#back2").hide();
+                                $(".cPage").hide();
+                                $("#back").hide();
+                                $("#chooseGroup").show();
+                            }
+
+                            function liclose(obj) {
+                                var num;
+                                if ($(obj).parent('li').attr('class') == 'selected_personnel_item') {
+                                    var user = $(obj).parent('li').find('input').val().split("\|");
+                                    var userId = user[0];
+                                    var userName = user[1];
+                                    var pic = user[2];
+                                    //alert(userId);
+                                    var usersIds = $("#userIds").val();
+                                    var userList = usersIds.split("\|");
+                                    var index = 0;
+                                    for (var i = 0; i < userList.length; i++) {
+                                        if (userList[i] == userId) {
+                                            index = i;
+                                        }
+                                    }
+                                    usersIds = usersIds.replace(userId + "|", "");
+                                    $("#userIds").val(usersIds);
+                                    $("#chooseIds").val(usersIds);
+                                    var person_name = $("#chooseNames").val();
+                                    person_name = person_name.replace(userName + "|", "");
+                                    $("#chooseNames").val(person_name);
+                                    var person_pic = $("#picIds").val();
+                                    person_pic = person_pic.replace(pic + "|", "");
+                                    $("#picIds").val(person_pic);
+                                    num = parseFloat($('.selected_num2').html().replace(/\(|\)/g, '')) - 1;
+                                    $('#selected_personnel').find('.selected_personnel_item').eq(index).remove();
+                                    $('#more-pop-con').find('.selected_personnel_item').eq(index).remove();
+                                    if (num <= 0) {
+                                        num = 0
+                                    }
+                                    if (num >= 13) {
+                                        $('#amore').css('display', 'block');
+                                    } else {
+                                        $('#amore').hide();
+                                    }
+                                    $('.selected_num2').html('(' + num + ')');
+                                    $('.more-pop-tit span.num').html('(' + num + ')');
+                                    var depart = $("#chooseDepartId").val();
+                                    $("#personFrame").attr("src", "/qwy/manager/include/personList.jsp?nodeId=" + depart);
+                                } else {
+                                    var dept = $(obj).parent('li').find('input');
+                                    var depart = dept.val();
+                                    //alert(userId);
+                                    var deptIds = $("#deptIds").val();
+                                    var deptList = deptIds.split("\|");
+                                    var temp;
+                                    for (var i = 0; i < deptList.length; i++) {
+                                        if (deptList[i] == depart) {
+                                            temp = i;
+                                            break;
+                                        }
+                                    }
+                                    if (temp == (deptList.length - 1)) {
+                                        if (deptList.length == 1) {
+                                            deptIds = "";
+                                        } else {
+                                            deptIds = deptIds.replace("|" + depart, "");
+                                        }
+                                    } else {
+                                        deptIds = deptIds.replace(depart + "|", "");
+                                    }
+                                    $("#deptIds").val(deptIds);
+                                    $(obj).parent('li').remove();
+                                    num = parseFloat($('.selected_num1').html().replace(/\(|\)/g, '')) - 1;
+                                    if (num <= 0) {
+                                        num = 0
+                                    }
+                                    $('.selected_num1').html('(' + num + ')');
+                                }
+                            }
+                            //统计部门人数
+                            function getPersons(deptIds, userIds, range) {
+                                $.ajax({
+                                    url: "/qwy/activityManageBack/activityManageBackAction!getPersonCount.action",
+                                    type: "get",
+                                    dataType: "json",
+                                    data: {
+
+                                        "deptIds": deptIds,
+                                        "userIds": userIds,
+                                        "range": range
+                                    },
+                                    success: function(result) {
+
+                                        if (result.code == "0") {
+
+                                            var userCount = result.data.personCount;
+                                            $("#userCount").val(userCount);
+                                        }
+                                    }
+                                });
+                            }
+                        </script>
+                    </div>
+                    <div class="dashed mt20 mb20">
+                    </div>
+                    <div class="form-item">
+                        <label for="">
+                            <span class="mustInput">
+                                *
+                            </span>
+                            流程节点：
+                            <span class="c999">
+                                (拖动可更换节点顺序)
+                            </span>
+                        </label>
+                    </div>
+                    <div class="form-item mb0">
+                        <div class="pl20 p10">
+                            <div class="flow_div1 fb">
+                                步骤
+                            </div>
+                            <div class="flow_div2 fb">
+                                类型
+                            </div>
+                            <div class="flow_div3 fb">
+                                节点名称
+                            </div>
+                            <div class="flow_div4 fb">
+                                节点处理人
+                            </div>
+                        </div>
+                    </div>
+                    <ul data-listidx="0" class="form-item" id="dragsort">
+                        <li style="cursor: pointer;" index="1" class="flow-item move flex">
+                            <div class="form-item-bgf6f5f4 flexCenter">
+                                <div class="flow_div1">
+                                    第1步
+                                </div>
+                                <div class="flow_div2">
+                                    流转
+                                </div>
+                                <div class="flow_div3">
+                                    <input name="group_ids" id="groupId1" type="hidden">
+                                    <input name="node_userIds" id="userId1" type="hidden">
+                                    <input name="node_userNames" id="nodeUserName1" type="hidden">
+                                    <input name="node_pic" id="nodePic1" type="hidden">
+                                    <input name="isLading" value="2" id="isLading1" type="hidden">
+                                    <input class="form-text w150sp" placeholder="请填写名称" name="node_names"
+                                    type="text">
+                                </div>
+                                <div class="flow_div4">
+                                    <div class="flow_div4_1">
+                                        <label>
+                                            <input name="radio1" onclick="checkRadioInfo(1)" type="radio">
+                                            提单人处理
+                                            <br>
+                                        </label>
+                                    </div>
+                                    <div class="flow_div4_2">
+                                        <label>
+                                            <input name="radio1" onclick="checkRadioInfo(1)" type="radio">
+                                            部门/科室负责人处理
+                                            <br>
+                                        </label>
+                                        <label class="pl50">
+                                            <input id="isQuery1" name="isQuery" disabled="disabled" type="checkbox">
+                                            自动查询上级
+                                        </label>
+                                    </div>
+                                    <div class="flow_div4_3">
+                                        <label>
+                                            <input name="radio1" checked="checked" onclick="checkRadioInfo(1)" type="radio">
+                                            选择处理人
+                                            <br>
+                                        </label>
+                                        <div class="flow_div5">
+                                            <div class="flow_div6">
+                                                <a class="btn smallBtn" id="getUserBut1" onmouseup="getUser('1')">
+                                                    选择审批人
+                                                </a>
+                                            </div>
+                                            <div class="flow_div7">
+                                                <a class="btn smallBtn" id="getGroupBut1" onmouseup="getGroup(1)">
+                                                    选择审批组
+                                                </a>
+                                            </div>
+                                            <div class="flow_div8">
+                                                <ul class="selected_personnel mt5 overflow" id="nodeUserImgs1">
+                                                </ul>
+                                                <ul class="appendDiv" id="nodeGroup1">
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add_icon vt mt15">
+                                <i>
+                                    +
+                                </i>
+                            </div>
+                        </li>
+                        <li style="cursor: pointer;" index="2" class="flow-item move flex">
+                            <div class="form-item-bgf6f5f4 flexCenter">
+                                <div class="flow_div1">
+                                    第2步
+                                </div>
+                                <div class="flow_div2">
+                                    流转
+                                </div>
+                                <div class="flow_div3">
+                                    <input name="group_ids" id="groupId2" type="hidden">
+                                    <input name="node_userIds" id="userId2" type="hidden">
+                                    <input name="node_userNames" id="nodeUserName2" type="hidden">
+                                    <input name="node_pic" id="nodePic2" type="hidden">
+                                    <input name="isLading" id="isLading2" value="2" type="hidden">
+                                    <input class="form-text w150sp" placeholder="请填写名称" name="node_names"
+                                    type="text">
+                                </div>
+                                <div class="flow_div4">
+                                    <div class="flow_div4_1">
+                                        <label>
+                                            <input name="radio2" onclick="checkRadioInfo(2)" type="radio">
+                                            提单人处理
+                                            <br>
+                                        </label>
+                                    </div>
+                                    <div class="flow_div4_2">
+                                        <label>
+                                            <input name="radio2" onclick="checkRadioInfo(2)" type="radio">
+                                            部门/科室负责人处理
+                                            <br>
+                                        </label>
+                                        <label class="pl50">
+                                            <input id="isQuery2" name="isQuery" disabled="disabled" type="checkbox">
+                                            自动查询上级
+                                        </label>
+                                    </div>
+                                    <div class="flow_div4_3">
+                                        <label>
+                                            <input name="radio2" checked="checked" onclick="checkRadioInfo(2)" type="radio">
+                                            选择处理人
+                                            <br>
+                                        </label>
+                                        <div class="flow_div5">
+                                            <div class="flow_div6">
+                                                <a class="btn smallBtn" id="getUserBut2" onmouseup="getUser('2')">
+                                                    选择审批人
+                                                </a>
+                                            </div>
+                                            <div class="flow_div7">
+                                                <a class="btn smallBtn" id="getGroupBut2" onmouseup="getGroup(2)">
+                                                    选择审批组
+                                                </a>
+                                            </div>
+                                            <div class="flow_div8">
+                                                <ul class="selected_personnel mt5 overflow" id="nodeUserImgs2">
+                                                </ul>
+                                                <ul class="appendDiv" id="nodeGroup2">
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="delete_icon vt mt15">
+                                <i>
+                                    -
+                                </i>
+                            </div>
+                        </li>
+                        <li style="cursor: pointer;" index="3" class="flow-item move flex">
+                            <div class="form-item-bgf6f5f4 flexCenter">
+                                <div class="flow_div1">
+                                    第3步
+                                </div>
+                                <div class="flow_div2">
+                                    流转
+                                </div>
+                                <div class="flow_div3">
+                                    <input name="group_ids" id="groupId3" type="hidden">
+                                    <input name="node_userIds" id="userId3" type="hidden">
+                                    <input name="node_userNames" id="nodeUserName3" type="hidden">
+                                    <input name="node_pic" id="nodePic3" type="hidden">
+                                    <input name="isLading" id="isLading3" value="2" type="hidden">
+                                    <input class="form-text w150sp" placeholder="请填写名称" name="node_names"
+                                    type="text">
+                                </div>
+                                <div class="flow_div4">
+                                    <div class="flow_div4_1">
+                                        <label>
+                                            <input name="radio3" onclick="checkRadioInfo(3)" type="radio">
+                                            提单人处理
+                                            <br>
+                                        </label>
+                                    </div>
+                                    <div class="flow_div4_2">
+                                        <label>
+                                            <input name="radio3" onclick="checkRadioInfo(3)" type="radio">
+                                            部门/科室负责人处理
+                                            <br>
+                                        </label>
+                                        <label class="pl50">
+                                            <input id="isQuery3" name="isQuery" disabled="disabled" type="checkbox">
+                                            自动查询上级
+                                        </label>
+                                    </div>
+                                    <div class="flow_div4_3">
+                                        <label>
+                                            <input name="radio3" checked="checked" onclick="checkRadioInfo(3)" type="radio">
+                                            选择处理人
+                                            <br>
+                                        </label>
+                                        <div class="flow_div5">
+                                            <div class="flow_div6">
+                                                <a class="btn smallBtn" id="getUserBut3" onmouseup="getUser('3')">
+                                                    选择审批人
+                                                </a>
+                                            </div>
+                                            <div class="flow_div7">
+                                                <a class="btn smallBtn" id="getGroupBut3" onmouseup="getGroup(3)">
+                                                    选择审批组
+                                                </a>
+                                            </div>
+                                            <div class="flow_div8">
+                                                <ul class="selected_personnel mt5 overflow" id="nodeUserImgs3">
+                                                </ul>
+                                                <ul class="appendDiv" id="nodeGroup3">
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="delete_icon vt mt15">
+                                <i>
+                                    -
+                                </i>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="dashed mt20 mb20">
+                    </div>
+                    <div class="form-item">
+                        <label for="">
+                            备注：
+                        </label>
+                        <div class="form-field">
+                            <textarea placeholder="如需备注请填写，仅管理后台可见">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-action tcform_action" id="saveDiv">
+                        <input permission="flowadd" class="btn orangeBtn twoBtn" value="保存" onclick="saveFlow()"
+                        type="button">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var totalNum = 4;
+            $(function() {
+                $("#radio_all").parent('div').addClass('active');
+                $("#radio_all").attr('checked', 'true');
+                $("#range").val("1");
+            });
+
+            function chooseFlowGroup() {
+                var top = (window.screen.height - 630) / 2;
+                var left = (window.screen.width - 460) / 2;
+                window.open("flow_group_list.jsp?groupId=" + $("#groupId").val(), '组织节点选择', 'left=' + left + ',top=' + top + ',height=600, width=460, toolbar=no, menubar=no, resizable=yes,location=no, status=no,scrollbars=no,directories=no,menubar=no');
+            }
+            function nodeChoosed(nodes) {
+                var groupId = "";
+                var li = "";
+                for (var i = 0; i < nodes.length; i++) {
+                    if (i == 0) {
+                        groupId += nodes[i].id;
+                    } else {
+                        groupId += "," + nodes[i].id;
+                    }
+                    li += '<li title="' + nodes[i].name + '" name="' + nodes[i].id + '"><span>' + nodes[i].name + '</span><i onclick="deleteGroup(this);"></i></li>';
+                }
+                $("#groupNames").html(li);
+                $("#flow_groupId").val(groupId);
+                _resetFrameHeight();
+            }
+
+            function deleteGroup(obj) {
+                var group_id = $(obj).parent().attr('name'); //需要删除的id
+                var groupIds = $("#groupId").val();
+                var groupArr = groupIds.split(",");
+                for (var i = 0; i < groupArr.length; i++) {
+                    if (groupArr[i] == group_id) {
+                        groupArr.remove(i);
+                    }
+                }
+                $(obj).parent().remove();
+                $("#groupId").val(groupArr);
+            }
+
+            //js数组删除元素 
+            Array.prototype.remove = function(dx) {
+                if (isNaN(dx) || dx > this.length) {
+                    return false;
+                }
+                for (var i = 0,
+                n = 0; i < this.length; i++) {
+                    if (this[i] != this[dx]) {
+                        this[n++] = this[i];
+                    }
+                }
+                this.length -= 1;
+            }
+
+            function saveFlow() {
+                var range = $("#range").val();
+
+                if (range == "0") {
+                    _alert("提示信息", "请选择目标对象");
+                    return;
+                }
+
+                if ($("#deptIds").val() == "" && $("#userIds").val() == "" && range == "3") {
+                    _alert("提示信息", "特定对象为空");
+                    return false;
+                }
+                if (getFlowNodeInfo()) return false;
+                $("#78d208b19bd54725be55c1843a07c319").attr("action", "/qwy/flow/flowAction!ajaxAdd.action");
+                _doCommonSubmit("78d208b19bd54725be55c1843a07c319", "", {
+                    ok: function(result) {
+                        document.location.href = "/qwy/manager/flow/flow_list.jsp";
+                    }
+                });
+
+            }
+
+            function uploadFile() {
+
+                $.ajaxFileUpload({
+                    url: '/qwy/fileupload/fileUploadMgrAction!doUploadImageJudge.action',
+                    //需要链接到服务器地址
+                    secureuri: false,
+                    fileElementId: 'imgFile1',
+                    //文件选择框的id属性
+                    dataType: 'json',
+                    //服务器返回的格式，可以是json
+                    success: function(data) {
+                        if ('0' == data.code) {
+                            $("#imgFlowMsg").attr("src", compressURL + data.data.imgurl);
+                            $("#flowMapUrl").attr("value", data.data.imgurl);
+                        } else {
+                            _alert("错误提示", data.desc);
+                        }
+                    },
+                    error: function() {
+                        _alert("错误提示", "上传文件失败！");
+                    }
+                });
+            }
+            /*  */
+            i = 0;
+
+            function saveOrder() { //拖动后回调函数
+                var liList = $('#dragsort').children('.flow-item');
+                var addTemplet = $('<div class="add_icon vt mt15"><i>+</i></div>');
+                var deleteTemplet = $('<div class="delete_icon vt mt15"><i>-</i></div>');
+                $.each(liList,
+                function(index, el) {
+                    $(el).find('.flow_div1').html('第' + (index + 1) + '步');
+                    $(el).find('.flow_div2').html('流转');
+                }) $('.add_icon').replaceWith(deleteTemplet);
+                $('#dragsort').children('.flow-item:first').find('.delete_icon').replaceWith(addTemplet);
+
+                $('#dragsort').children('.flow-item:last').find('.flow_div2').html('结束');
+            }
+            $(function() {
+                $.each($('#dragsort').children('.flow-item'),
+                function(index, el) {
+                    $(el).attr('index', index + 1)
+                });
+
+                /*       	 $('.form-item').on('click','.flow_div4 label',function(){//点击提单人
+    		if($(this).find('input').prop('checked')){
+    			$(this).parent('.flow_div4').addClass('active');
+    			$(this).parent('.flow_div4').next('.flow_div5').hide();
+    		}else{
+    			$(this).parent('.flow_div4').removeClass('active');
+    			$(this).parent('.flow_div4').next('.flow_div5').show();
+    		}
+    	});  */
+
+                $('.form-item').on('click', '.add_icon',
+                function() { //新增节点
+                    var num = $('#dragsort').children('.flow-item').length;
+                    //最原始
+                    //var templet=$('<li class="flow-item move flex"><div class="form-item-bgf6f5f4 flexCenter"><div class="flow_div1">第'+(num+1)+'步</div><div class="flow_div2">结束</div><div class="flow_div3"><input type="hidden" name="node_userIds" id="userId'+totalNum+'" ><input type="hidden" name="node_userNames" id="nodeUserName'+totalNum+'" ><input type="hidden" name="node_pic" id="nodePic'+totalNum+'" ><input type="text" class="form-text w150sp" placeholder="请填写名称"></div><div class="flow_div4"><label><input type="checkbox" name="isCreate">提单人</label></div><div class="flow_div5" style="display: inline-block;"><div class="flow_div6"><a class="" onclick="getUser('+totalNum+')">选择审批人</a></div><div class="flow_div7"><a class="btn smallBtn AddPerson">选择审批组</a></div></div><div class="flow_div8"><ul class="selected_personnel mt5 overflow" id="nodeUserImgs'+totalNum+'"></ul></div></div> <div class="delete_icon vt mt15"><i>-</i></div></li>'); 
+                    //var templet=$('<li class="flow-item move flex"><div class="form-item-bgf6f5f4 flexCenter"><div class="flow_div1">第'+(num+1)+'步</div><div class="flow_div2">结束</div><div class="flow_div3"><input type="hidden" name="group_ids" id="groupId'+totalNum+'" /><input type="hidden" name="node_userIds" id="userId'+totalNum+'" ><input type="hidden" name="node_userNames" id="nodeUserName'+totalNum+'" ><input type="hidden" name="node_pic" id="nodePic'+totalNum+'" ><input type="text" class="form-text w150sp" placeholder="请填写名称" name="node_names"></div><div class="flow_div4"><label><input type="checkbox" name="isCreate">提单人<br/></label><label><input type="checkbox" name="isReceive">直接负责人<br/></label><label style="display:none;"><input type="checkbox" name="isQuery" >自动查询上级</label></div><div class="flow_div5"><div class="flow_div6"><a class="btn smallBtn" onmouseup="getUser('+totalNum+')">选择审批人</a></div><div class="flow_div7"><a class="btn smallBtn" onmouseup="getGroup('+totalNum+')">选择审批组</a></div><div class="flow_div8"><ul class="selected_personnel mt5 overflow" id="nodeUserImgs'+totalNum+'"></ul> <ul class="appendDiv" id="nodeGroup'+totalNum+'"></ul></div></div></div><div class="delete_icon vt mt15"><i>-</i></div></li>');
+                    var templet = $('<li class="flow-item move flex"><div class="form-item-bgf6f5f4 flexCenter"><div class="flow_div1">第' + (num + 1) + '步</div><div class="flow_div2">结束</div><div class="flow_div3"><input type="hidden" name="group_ids" id="groupId' + totalNum + '" /><input type="hidden" name="node_userIds" id="userId' + totalNum + '" ><input type="hidden" name="node_userNames" id="nodeUserName' + totalNum + '" ><input type="hidden" name="node_pic" id="nodePic' + totalNum + '" ><input type="hidden" name="isLading" id="isLading' + totalNum + '" value="2"><input type="text" class="form-text w150sp" placeholder="请填写名称" name="node_names"></div><div class="flow_div4"><div class="flow_div4_1"><label><input type="radio" name="radio' + totalNum + '" onclick="checkRadioInfo(' + totalNum + ')">提单人处理<br/></label></div> <div class="flow_div4_2"><label><input type="radio" name="radio' + totalNum + '" onclick="checkRadioInfo(' + totalNum + ')">部门/科室负责人处理<br/></label><label class="pl50"><input type="checkbox" id="isQuery' + totalNum + '" name="isQuery" disabled="disabled">自动查询上级</label></div><div class="flow_div4_3"><label><input type="radio" name="radio' + totalNum + '" checked="radio" onclick="checkRadioInfo(' + totalNum + ')">选择处理人<br/></label><div class="flow_div5"><div class="flow_div6"><a class="btn smallBtn"  id="getUserBut' + totalNum + '" onmouseup="getUser(' + totalNum + ')">选择审批人</a></div><div class="flow_div7"><a class="btn smallBtn" id="getGroupBut' + totalNum + '" onmouseup="getGroup(' + totalNum + ')">选择审批组</a></div><div class="flow_div8"><ul class="selected_personnel mt5 overflow" id="nodeUserImgs' + totalNum + '"></ul> <ul class="appendDiv" id="nodeGroup' + totalNum + '"></ul></div></div></div></div></div><div class="delete_icon vt mt15"><i>-</i></div></li>');
+
+                    $('#dragsort').find('.flow_div2').html('流转');
+                    $('#dragsort').append(templet);
+                    var liList = $('#dragsort').children('.flow-item');
+                    $.each(liList,
+                    function(index, el) {
+                        $(el).attr('index', index + 1);
+                    });
+                    totalNum++;
+                }) $('.form-item').on('mouseup click', '.delete_icon',
+                function() { //删除节点
+                    $(this).parent('.flow-item').remove();
+                    var liList = $('#dragsort').children('.flow-item');
+                    $.each(liList,
+                    function(index, el) {
+                        $(el).attr('index', index + 1) $(el).find('.flow_div1').html('第' + (index + 1) + '步');
+                    })
+
+                }) $('.form-item').on('mouseup click', '.AddGroup',
+                function() { //选择审批人
+                    AddGroup();
+                }) $('.form-item').on('mouseup click', '.AddPerson',
+                function() { //选择审批组
+                    AddPerson();
+                }) $("#dragsort").dragsort({
+                    dragSelector: ".move",
+                    dragBetween: false,
+                    dragEnd: saveOrder,
+                    placeHolderTemplate: "<li></li>",
+                    scrollSpeed: 5
+                }); //拖动
+            })
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="flow_list_data/jquery.js">
+        </script>
+        <script type="text/javascript" src="flow_list_data/jquery_004.js">
+        </script>
+        <script type="text/javascript" src="flow_list_data/jquery_003.js">
+        </script>
+        <style type="text/css">
+            .ztree li button.add { margin-left: 2px; margin-right: -1px; background-position:
+            -144px 0; vertical-align: top; vertical-align: middle } div.ztree { background:
+            none repeat scroll 0 0 #f6f6f6; border: 1px solid #d9dadc; border-radius:
+            5px; max-height: 100000px; min-height: 552px; overflow: hidden; padding-top:
+            20px; } div.content_wrap { min-height: 200px; overflow: hidden; width:
+            100%; } div.content_wrap div.left { float: left; width: 21%; margin-top:20px;
+            } div.content_wrap div.right { float: left; width: 78%; margin-left: 1%;
+            } div.zTreeDemoBackground { width: 250px; text-align: left; } .fr.frMainBar
+            .searchBox { background: none repeat scroll 0 0 #fff; border: 1px solid
+            #cccccc; border-radius: 4px; height: 35px; margin-left: 250px; position:
+            relative; width: 240px; } #chooseGroup .span_return { border: 1px solid
+            #ccc; border-radius: 5px; cursor: pointer; display: inline-block; float:
+            left; padding: 8px 35px; } #chooseGroup .add_btn { float: left; font-size:
+            16px; font-weight: bold; margin-left: 10px; padding: 8px; } #chooseGroup
+            .add_wrap { clear: both; margin-top: 20px; overflow: hidden; } #chooseGroup
+            .add_btn span { color: #ff9600; margin-left: 3px; } .foot_wrap { border-top:
+            1px solid #eeeeee; clear: both; position: relative; } #nodeDetail{ overflow:hidden;
+            height:660px; }
+        </style>
+        <div id="chooseGroup" style="display:none">
+            <div class="add_wrap">
+                <span class="span_return" onclick="comback3()">
+                    返回
+                </span>
+            </div>
+            <div class="content_wrap">
+                <input name="groupId" value="" id="groupId" type="hidden">
+                <div id="left_w" class="zTreeDemoBackground left">
+                    <div id="groupTree" class="ztree">
+                    </div>
+                </div>
+                <div id="right_w" class="right">
+                    <div id="nodeDetail">
+                        <iframe name="personFrame" src="flow_list_data/groupList.htm" id="personFrame1"
+                        style="overflow-x:hidden;overflow-y:auto;min-height:660px" scrolling="no"
+                        frameborder="0" height="0" width="100%">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="mt20 foot_wrap" style="position:relative" align="center">
+                <p style="position:absolute;top:40px;left:45%">
+                    <input class="btn orangeBtn twoBtn" value="确定" onclick="chooseGroup();"
+                    type="button">
+                    <input class="btn writeBtn twoBtn ml10" value="取消" onclick="comback3()"
+                    type="button">
+                </p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var choose_group_id = "";
+            /* var choose_dept_name=""; */
+            function comback3() {
+                $("#chooseGroup").hide();
+                //$("#back3").hide();
+                $("#chooseDeptAndUs").show();
+                $(".cPage").show();
+                $("#back").show();
+            }
+            function chooseGroup() {
+                if (choose_group_id != null && choose_group_id != "") {
+                    chooseUserByGroup(choose_group_id);
+                }
+                $("#chooseGroup").hide();
+                $("#chooseDeptAndUs").show();
+                $(".cPage").show();
+                $("#back").show();
+            }
+
+            function chooseUserByGroup(id) {
+                var group_userIds = "";
+                var group_userNames = "";
+                var group_pic = "";
+                var choose_user_id = $("#chooseIds").val();
+                var choose_user_name = $("#chooseNames").val();
+                var choose_user_pic = $("#picIds").val();
+                var per = choose_user_id.split("\|");
+                var count = per.length - 1;
+                $.ajax({
+                    url: "/qwy/defatgroup/defatgroupAction!chooseUserByGroups.action?id=" + id,
+                    type: "get",
+                    async: false,
+                    dataType: "json",
+                    success: function(result) {
+                        if (result.code == "0") {
+                            var users = result.data.persons;
+                            for (var i = 0; i < users.length; i++) {
+                                if (! (choose_user_id.indexOf(users[i].userId) > -1)) {
+                                    count++;
+                                    group_userIds += users[i].userId + "|";
+                                    group_userNames += users[i].personName + "|";
+                                    group_pic += users[i].headPic + "|";
+                                    $('.selected_num2').html('(' + count + ')');
+                                    $('.more-pop-tit span.num').html('(' + count + ')');
+                                    $('#selected_personnel').append("<li class='selected_personnel_item'><input name='user' type='hidden' value='" + users[i].userId + "|" + users[i].personName + "|" + users[i].headPic + "' id='" + users[i].userId + "'/><span class='img'><img src='" + users[i].headPic + "'>" + "</span>" + "<span class='name'>" + users[i].personName + "</span><i onclick='liclose(this)'></i></li>");
+                                    $('#more-pop-con').append("<li class='selected_personnel_item'><input name='user' type='hidden' value='" + users[i].userId + "|" + users[i].personName + "|" + users[i].headPic + "' id='" + users[i].userId + "'/><span class='img'><img src='" + users[i].headPic + "'>" + "</span>" + "<span class='name'>" + users[i].personName + "</span><i onclick='liclose(this)'></i></li>");
+                                    if (count >= 13) {
+                                        //$('#more-pop-con').append("<li class='selected_personnel_item'><input name='user' type='hidden' value='"+users[i].userId+"|"+users[i].personName+"|"+users[i].headPic+"' id='"+users[i].userId+"'/><span class='img'><img src='"+users[i].headPic+"'>"+"</span>"+"<span class='name'>"+users[i].personName+"</span><i onclick='liclose(this)'></i></li>");
+                                        $('#amore').css('display', 'block');
+                                        $('#amore').click(function() {
+                                            $('#more-pop-bg').show();
+                                            $('#more-pop').show();
+                                            var top = $(window.top.document).scrollTop() + ($(window.top).height() - $('#more-pop').height()) / 2 - 200;
+                                            $('#more-pop').css('top', top);
+                                        })
+                                    } else {
+
+                                        $('#amore').hide();
+                                    }
+                                }
+                            }
+                            $("#userIds").val(choose_user_id + group_userIds);
+                            $("#chooseIds").val(choose_user_id + group_userIds);
+                            $("#chooseNames").val(choose_user_name + group_userNames);
+                            $("#picIds").val(choose_user_pic + group_pic);
+                        }
+                    },
+                    error: function() {
+
+}
+                });
+            }
+            //var ids =$("#deptIds").val();
+            var groupsetting = {
+                data: {
+                    simpleData: {
+                        enable: true,
+                        idKey: "nodeId",
+                        pIdKey: "parentId",
+                        root: 0
+                    },
+                    key: {
+                        name: "groupName"
+                    }
+                },
+                view: {
+                    showLine: false,
+                    showIcon: true
+                },
+                edit: {
+                    enable: false
+                },
+                async: {
+                    enable: true,
+                    url: baseURL + "/defatgroup/defatgroupAction!getGroupList.action",
+                    autoParam: ["orgId", "orgId"],
+                    dataFilter: ajaxDataFilter4
+                },
+                callback: {
+                    onClick: viewGroup,
+                    beforeClick: beforGroupClick,
+                    onCheck: checkGroup
+                },
+                check: {
+                    enable: true,
+                    chkStyle: "checkbox",
+                    autoCheckTrigger: true,
+                    chkboxType: {
+                        "Y": "",
+                        "N": ""
+                    },
+                    nocheckInherit: true
+                }
+            };
+
+            var groupNodes;
+            var expanNode;
+            var allowClick1 = true; //标记节点是否能被点击
+            /*  $(document).ready(function () {
+    	groupInit();
+    });   */
+
+            /**
+     * 初始化组织机构树
+     */
+            function groupInit() {
+                $.ajax({
+                    url: baseURL + '/defatgroup/defatgroupAction!getGroupList.action',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        "orgId": $("#orgid").val()
+                    },
+                    success: function(result) {
+                        if ('0' == result.code) {
+                            groupNodes = result.data.groupList;
+                            $.each(groupNodes,
+                            function(i, node) {
+                                node.icon = baseURL + "/manager/images/company_icon.png";
+                            });
+                            if (groupNodes.length > 0) {
+                                $.fn.zTree.init($('#groupTree'), groupsetting, groupNodes);
+                                // 展开机构树的根节点
+                                var orgTree = $.fn.zTree.getZTreeObj("groupTree");
+                                var rootNodes = orgTree.getNodes();
+                                if (rootNodes.length > 0) orgTree.expandNode(rootNodes[0], true, false, true);
+                            }
+                        } else {
+                            alert(result.desc);
+                        }
+                    }
+                });
+            }
+
+            /**
+     * 异步加载节点数据后的处理函数
+     * @param treeId
+     * @param parent
+     * @param result
+     */
+            function ajaxDataFilter4(treeId, parent, result) {
+                if ('0' == result.code) {
+                    var data = result.data.groupList;
+                    if (data) {
+                        ids = $("#groupId").val();
+                        for (var i = 0; i < data.length; i++) {
+                            if (ids.indexOf(data[i].groupId) > -1) {
+                                data[i].checked = "true";
+                            }
+                        }
+                    }
+                    $.each(data,
+                    function(i, node) {
+                        if (node.isParent && node.isParent == "true") {
+                            node.iconOpen = "/qwy/manager/images/twopeople_icon.png";
+                            node.iconClose = "/qwy/manager/images/threepeople_icon.png";
+                        } else {
+                            node.icon = "/qwy/manager/images/twopeople_icon.png";
+                        }
+                        if (node.parentId != "") {
+                            node.nocheck = "true";
+                        }
+                    });
+                    return data;
+                }
+            }
+
+            /**
+     * 查看群组的详细信息
+     * @param event
+     * @param treeId
+     * @param treeNode
+     */
+            function viewGroup(event, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("groupTree");
+                zTree.expandNode(treeNode);
+                //alert(treeNode.nodeId);
+                //alert(treeNode.groupId);
+                $("#personFrame1").attr("src", "/qwy/manager/include/groupList.jsp?id=" + treeNode.groupId);
+            }
+
+            /**
+     * 控制节点是否能被选中
+     * @param treeId
+     * @param treeNode
+     * @param clickFlag
+     */
+            function beforGroupClick(treeId, treeNode, clickFlag) {
+                if (!allowClick1) {
+                    allowClick1 = true;
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function checkGroup(event, treeId, treeNode) {
+                var treeObj = $.fn.zTree.getZTreeObj("groupTree");
+                var nodes = treeObj.getCheckedNodes(true);
+                var groupIds = '';
+                for (var i = 0; i < nodes.length; i++) {
+                    if (i == (nodes.length - 1)) {
+                        //deptnames += nodes[i].nodeName;
+                        groupIds += nodes[i].groupId;
+                    } else {
+                        //deptnames += nodes[i].nodeName + "|";
+                        groupIds += nodes[i].groupId + "|";
+                    }
+                }
+                choose_group_id = groupIds;
+                $("#groupId").val(choose_group_id);
+                //choose_dept_name = deptnames;
+            }
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="flow_list_data/jquery.js">
+        </script>
+        <script type="text/javascript" src="flow_list_data/jquery_004.js">
+        </script>
+        <script type="text/javascript" src="flow_list_data/jquery_003.js">
+        </script>
+        <style type="text/css">
+            .ztree li button.add { margin-left: 2px; margin-right: -1px; background-position:
+            -144px 0; vertical-align: top; vertical-align: middle } div.ztree { background:
+            none repeat scroll 0 0 #f6f6f6; border: 1px solid #d9dadc; border-radius:
+            5px; max-height: 100000px; min-height: 552px; overflow: hidden; padding-top:
+            20px; } div.content_wrap { min-height: 200px; overflow: hidden; width:
+            100%; } div.content_wrap div.left { float: left; width: 21%; margin-top:20px;
+            } div.content_wrap div.right { float: left; width: 78%; margin-left: 1%;
+            } div.zTreeDemoBackground { width: 250px; text-align: left; } .fr.frMainBar
+            .searchBox { background: none repeat scroll 0 0 #fff; border: 1px solid
+            #cccccc; border-radius: 4px; height: 35px; margin-left: 250px; position:
+            relative; width: 240px; } #chooseUsers .span_return { border: 1px solid
+            #ccc; border-radius: 5px; cursor: pointer; display: inline-block; float:
+            left; padding: 8px 35px; } #chooseUsers .add_btn { float: left; font-size:
+            16px; font-weight: bold; margin-left: 10px; padding: 8px; } #chooseUsers
+            .add_wrap { clear: both; margin-top: 20px; overflow: hidden; } #chooseUsers
+            .add_btn span { color: #ff9600; margin-left: 3px; } .foot_wrap { border-top:
+            1px solid #eeeeee; clear: both; position: relative; } #nodeDetail{ overflow:hidden;
+            height:660px; }
+        </style>
+        <div id="chooseUsers" style="display:none">
+            <div class="add_wrap">
+                <span class="span_return" onclick="combackUser()">
+                    返回
+                </span>
+                <div class="add_btn">
+                    添加特定人员
+                    <span class="selected_num2" id="userCount1">
+                        (0)
+                    </span>
+                </div>
+            </div>
+            <div class="content_wrap">
+                <div id="left_w" class="zTreeDemoBackground left">
+                    <div id="chose_orgTree" class="ztree">
+                    </div>
+                </div>
+                <div id="right_w" class="right">
+                    <input name="userId" value="" id="chooseIds" type="hidden">
+                    <input name="userName" value="" id="chooseNames" type="hidden">
+                    <input name="pic" value="" id="picIds" type="hidden">
+                    <div id="nodeDetail">
+                        <input name="chooseDepartId" value="" id="chooseDepartId" type="hidden">
+                        <iframe name="personFrame" src="flow_list_data/personList.htm" id="personFrame"
+                        style="overflow-x:hidden;overflow-y:auto;min-height: 660px;" scrolling="no"
+                        frameborder="0" height="0" width="100%">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="mt20 foot_wrap" style="position:relative" align="center">
+                <p style="position:absolute;top:40px;left:45%">
+                    <input class="btn orangeBtn twoBtn" value="确定" onclick="chooseuserok();"
+                    type="button">
+                    <input class="btn writeBtn twoBtn ml10" value="取消" onclick="combackUser()"
+                    type="button">
+                </p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            /* var ids =$("#deptIds").val(); */
+            var isSetting = "0";
+            if ($("#isSetting").val()) {
+                isSetting = $("#isSetting").val();
+            }
+            var userIds;
+            var department = {
+                data: {
+                    simpleData: {
+                        enable: true,
+                        idKey: "nodeId",
+                        pIdKey: "parentId",
+                        root: 0
+                    },
+                    key: {
+                        name: "nodeName"
+                    }
+                },
+                view: {
+                    showLine: false,
+                    showIcon: true
+                },
+                edit: {
+                    enable: false
+                },
+                async: {
+                    enable: true,
+                    url: baseURL + "/contact/contactAction!listOrgNodeByParent.action?isSettingDepqrt=" + isSetting,
+                    autoParam: ["orgId", "orgId"],
+                    dataFilter: ajaxDataFilter3
+                },
+                callback: {
+                    onClick: seachOrgNode,
+                    beforeClick: beforNodeClick1,
+                    //onCheck: checkOrgNode1
+                },
+                /* check: {
+            enable: false,
+            /* chkStyle: "checkbox",
+            autoCheckTrigger: true,
+            chkboxType: { "Y": "", "N": "" },
+            nocheckInherit: true 
+        }  */
+            };
+
+            //var orgNodes1;
+            var allowClick1 = true; //标记节点是否能被点击
+            /* $(document).ready(function () {
+    	usersinit();
+    });  */
+
+            /**
+     * 初始化组织机构树
+     */
+            function usersinit() {
+                $.ajax({
+                    url: baseURL + '/contact/contactAction!getRootNodeByUser.action',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        "orgId": $("#orgid").val()
+                    },
+                    success: function(result) {
+                        if ('0' == result.code) {
+                            var orgNodes1 = result.data.orgList;
+                            $.each(orgNodes1,
+                            function(i, node) {
+                                node.icon = baseURL + "/manager/images/company_icon.png";
+                            });
+                            if (orgNodes1.length > 0) {
+                                $.fn.zTree.init($('#chose_orgTree'), department, orgNodes1);
+                                // 展开机构树的根节点
+                                var orgTree = $.fn.zTree.getZTreeObj("chose_orgTree");
+                                var rootNodes = orgTree.getNodes();
+                                if (rootNodes.length > 0) orgTree.expandNode(rootNodes[0], true, false, true);
+                            }
+                        } else {
+                            alert(result.desc);
+                        }
+                    }
+                });
+            }
+
+            /**
+     * 展开父节点
+     * @param event
+     * @param orgTreeId
+     * @param orgTreeNode
+     */
+            function expandParentOrg(event, orgTreeId, orgTreeNode) {
+                var orgTree = $.fn.zTree.getZTreeObj("chose_orgTree");
+                //    orgTree.reAsyncChildNodes(orgTreeNode, "refresh");
+            }
+
+            /**
+     * 异步加载节点数据后的处理函数
+     * @param treeId
+     * @param parent
+     * @param result
+     */
+            function ajaxDataFilter3(treeId, parent, result) {
+                if ('0' == result.code) {
+                    var data = result.data.orgList;
+                    /* if (data) {            	
+            	ids=$("#deptIds").val();
+                for (var i = 0; i < data.length; i++) {
+                        if (ids.indexOf(data[i].nodeId) > -1){
+                            	data[i].checked = "true";        	
+                        }
+                }
+            }  */
+                    $.each(data,
+                    function(i, node) {
+                        if (node.isParent && node.isParent == "true") {
+                            node.iconOpen = "/qwy/manager/images/twopeople_icon.png";
+                            node.iconClose = "/qwy/manager/images/threepeople_icon.png";
+                        } else {
+                            node.icon = "/qwy/manager/images/twopeople_icon.png";
+                        }
+                        if (node.parentId != "") {
+                            node.nocheck = "true";
+                        }
+                    });
+                    return data;
+                }
+            }
+
+            /**
+     * 查看组织机构具体信息
+     * @param event
+     * @param treeId
+     * @param treeNode
+     */
+            function seachOrgNode(event, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("chose_orgTree");
+                zTree.expandNode(treeNode);
+                $("#personFrame").attr("src", "/qwy/manager/include/personList.jsp?nodeId=" + treeNode.nodeId + "&isSettingUser=" + isSetting);
+            }
+
+            /**
+     * 控制节点是否能被选中
+     * @param treeId
+     * @param treeNode
+     * @param clickFlag
+     */
+            function beforNodeClick1(treeId, treeNode, clickFlag) {
+                if (!allowClick1) {
+                    allowClick1 = true;
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            //确定按钮点击，调用回调函数
+            function chooseuserok() {
+                var choose_user_id = $("#chooseIds").val();
+                var choose_person_name = $("#chooseNames").val();
+                var choose_person_pic = $("#picIds").val();
+                //alert(choose_user_id);
+                var num = 0; //选择的人数
+                //$("#PersonList").html(""); 
+                $('#selected_personnel').html('');
+                $('#more-pop-con').html('');
+                if (choose_user_id != null && choose_user_id != "") {
+                    //$("#PersonList").show();
+                    $("#userIds").val(choose_user_id);
+                    var userIds = choose_user_id.split("\|");
+                    var picIds = choose_person_pic.split("\|");
+                    var personList = choose_person_name.split("\|");
+                    for (var i = 0; i < personList.length; i++) {
+                        if (personList[i] != null && personList[i] != "") {
+                            num++;
+                            //$("#PersonList").append("<option>"+personList[i]+"</option>");	
+                            $('.selected_num2').html('(' + num + ')');
+                            $('.more-pop-tit span.num').html('(' + num + ')');
+                            var li = "<li class='selected_personnel_item'><input name='user' type='hidden' value='" + userIds[i] + "|" + personList[i] + "|" + picIds[i] + "' id='" + userIds[i] + "'/><span class='img'><img src='" + picIds[i] + "'>" + "</span>" + "<span class='name'>" + personList[i] + "</span><i onclick='liclose(this)'></i></li>";
+                            if (i < 10) {
+                                $('#selected_personnel').append(li);
+                                $('#amore').hide();
+                            }
+                            $('#more-pop-con').append(li);
+                            $('#amore').css('display', 'block');
+                            $('#amore').click(function() {
+                                $('#more-pop-bg').show();
+                                $('#more-pop').show();
+                                var top = $(window.top.document).scrollTop() + ($(window.top).height() - $('#more-pop').height()) / 2 - 200;
+                                $('#more-pop').css('top', top);
+                            });
+
+                        }
+                    }
+                } else {
+                    $("#userIds").val(choose_user_id);
+                    $('.selected_num2').html('(' + num + ')');
+                    $('.more-pop-tit span.num').html('(' + num + ')');
+                    //$("#PersonList").hide();
+                }
+                $("#chooseUsers").hide();
+                $("#chooseDeptAndUs").show();
+                $(".cPage").show();
+                $("#back").show();
+                //重新计算数量
+                $("#userCount").val("");
+                var dept = $("#deptIds").val();
+                getPersons(dept, choose_user_id, "3");
+            }
+
+            //取消
+            function combackUser() {
+                $("#chooseUsers").hide();
+                //$("#back3").hide();
+                $("#chooseDeptAndUs").show();
+                $(".cPage").show();
+                $("#back").show();
+            }
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="flow_list_data/jquery.js">
+        </script>
+        <script type="text/javascript" src="flow_list_data/jquery_004.js">
+        </script>
+        <script type="text/javascript" src="flow_list_data/jquery_003.js">
+        </script>
+        <style type="text/css">
+            .ztree li button.add { margin-left: 2px; margin-right: -1px; background-position:
+            -144px 0; vertical-align: top; vertical-align: middle } div.ztree { background:
+            none repeat scroll 0 0 #f6f6f6; border: 1px solid #d9dadc; border-radius:
+            5px; max-height: 100000px; min-height: 552px; overflow: hidden; padding-top:
+            20px; } div.content_wrap { min-height: 200px; overflow: hidden; width:
+            100%; } div.content_wrap div.left { float: left; width: 21%; margin-top:20px;
+            } div.content_wrap div.right { float: left; width: 78%; margin-left: 1%;
+            } div.zTreeDemoBackground { width: 250px; text-align: left; } .fr.frMainBar
+            .searchBox { background: none repeat scroll 0 0 #fff; border: 1px solid
+            #cccccc; border-radius: 4px; height: 35px; margin-left: 250px; position:
+            relative; width: 240px; } #chooseDept .span_return { border: 1px solid
+            #ccc; border-radius: 5px; cursor: pointer; display: inline-block; float:
+            left; padding: 8px 35px; } #chooseDept .add_btn { float: left; font-size:
+            16px; font-weight: bold; margin-left: 10px; padding: 8px; } #chooseDept
+            .add_wrap { clear: both; margin-top: 20px; overflow: hidden; } #chooseDept
+            .add_btn span { color: #ff9600; margin-left: 3px; } .foot_wrap { border-top:
+            1px solid #eeeeee; clear: both; position: relative; } #nodeDetail{ overflow:hidden;
+            height:660px; }
+        </style>
+        <div id="chooseDept" style="display: none;">
+            <div class="add_wrap">
+                <span class="span_return" onclick="comback2()">
+                    返回
+                </span>
+                <div class="add_btn">
+                    添加特定部门
+                    <span class="selected_num1">
+                        (0)
+                    </span>
+                </div>
+            </div>
+            <div class="content_wrap">
+                <div id="left_w" class="zTreeDemoBackground left">
+                    <div id="orgTree" class="ztree">
+                    </div>
+                </div>
+                <div id="right_w" class="right">
+                    <div id="nodeDetail">
+                        <iframe name="personFrame" src="flow_list_data/deptList.htm" id="personFrame2"
+                        style="overflow-x:hidden;overflow-y:auto;min-height:660px" scrolling="no"
+                        frameborder="0" height="0" width="100%">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="mt20 foot_wrap" style="position:relative" align="center">
+                <p style="position:absolute;top:40px;left:45%">
+                    <input class="btn orangeBtn twoBtn" value="确定" onclick="chooseok();" type="button">
+                    <input class="btn writeBtn twoBtn ml10" value="取消" onclick="comback2()"
+                    type="button">
+                </p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var isSetting = "0";
+            if ($("#isSetting").val()) {
+                isSetting = $("#isSetting").val();
+            }
+            var choose_dept_id = "";
+            var choose_dept_name = "";
+            function comback2() {
+                $("#chooseDept").hide();
+                //$("#back3").hide();
+                $("#chooseDeptAndUs").show();
+                $(".cPage").show();
+                $("#back").show();
+            }
+            function chooseok() {
+                var treeObj = $.fn.zTree.getZTreeObj("orgTree");
+                var nodes = treeObj.getCheckedNodes(true);
+                var choose_dept_name = '';
+                var choose_dept_id = '';
+
+                $('#selected_department').html('');
+                if (nodes != null && nodes.length > 0) {
+                    $("#DepartmentList").show();
+                    for (var i = 0; i < nodes.length; i++) {
+                        if (i == 0) {
+                            choose_dept_name += nodes[i].nodeName;
+                            choose_dept_id += nodes[i].nodeId;
+                        } else {
+                            choose_dept_name += "|" + nodes[i].nodeName;
+                            choose_dept_id += "|" + nodes[i].nodeId;
+                        }
+                        $('#selected_department').append("<li><input name='depart' type='hidden' value='" + nodes[i].nodeId + "' /><span>" + nodes[i].nodeName + "</span><i onclick='liclose(this)'></i></li>");
+                    }
+                    $('.selected_num1').html('(' + nodes.length + ')');
+
+                } else {
+                    $("#DepartmentList").hide();
+                    $('.selected_num1').html('(0)');
+                }
+
+                $("#deptIds").val(choose_dept_id);
+                //重新计算数量
+                $("#userCount").val("");
+                var person = $("#userIds").val();
+                getPersons(choose_dept_id, person, "3");
+
+                $("#chooseDept").hide();
+
+                $("#chooseDeptAndUs").show();
+                $(".cPage").show();
+                $("#back").show();
+            }
+            var ids = $("#deptIds").val();
+            var deptsetting = {
+                data: {
+                    simpleData: {
+                        enable: true,
+                        idKey: "nodeId",
+                        pIdKey: "parentId",
+                        root: 0
+                    },
+                    key: {
+                        name: "nodeName"
+                    }
+                },
+                view: {
+                    showLine: false,
+                    showIcon: true
+                },
+                edit: {
+                    enable: false
+                },
+                async: {
+                    enable: true,
+                    url: baseURL + "/contact/contactAction!listOrgNodeByParent.action?isSettingDepqrt=" + isSetting,
+                    autoParam: ["orgId", "orgId"],
+                    dataFilter: ajaxDataFilter2
+                },
+                callback: {
+                    onClick: viewOrgNode,
+                    //beforeCheck: beforNodeCheck,
+                    onCheck: checkOrgNode
+                },
+                check: {
+                    enable: true,
+                    chkStyle: "checkbox",
+                    autoCheckTrigger: true,
+                    chkboxType: {
+                        "Y": "",
+                        "N": ""
+                    },
+                    nocheckInherit: true
+                }
+            };
+
+            var orgNodes;
+            var expanNode;
+            var allowClick = true; //标记节点是否能被点击
+            /*  $(document).ready(function () {
+        init();
+    }); */
+
+            /**
+     * 初始化组织机构树
+     */
+            function init() {
+                $.ajax({
+                    url: baseURL + '/contact/contactAction!getRootNodeByUser.action',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        "orgId": $("#orgid").val()
+                    },
+                    success: function(result) {
+                        if ('0' == result.code) {
+                            orgNodes = result.data.orgList;
+                            $.each(orgNodes,
+                            function(i, node) {
+                                node.icon = baseURL + "/manager/images/company_icon.png";
+                            });
+                            if (orgNodes.length > 0) {
+                                $.fn.zTree.init($('#orgTree'), deptsetting, orgNodes);
+                                // 展开机构树的根节点
+                                var orgTree = $.fn.zTree.getZTreeObj("orgTree");
+                                var rootNodes = orgTree.getNodes();
+                                if (rootNodes.length > 0) orgTree.expandNode(rootNodes[0], true, false, true);
+                            }
+                        } else {
+                            alert(result.desc);
+                        }
+                    }
+                });
+                setTimeout(function() {
+                    $("#orgTree_1_check").attr("style", "display:none");
+                },
+                400);
+
+            }
+
+            /**
+     * 展开父节点
+     * @param event
+     * @param orgTreeId
+     * @param orgTreeNode
+     */
+            function expandParentOrg(event, orgTreeId, orgTreeNode) {
+                var orgTree = $.fn.zTree.getZTreeObj("orgTree");
+                //    orgTree.reAsyncChildNodes(orgTreeNode, "refresh");
+            }
+
+            /**
+     * 异步加载节点数据后的处理函数
+     * @param treeId
+     * @param parent
+     * @param result
+     */
+            function ajaxDataFilter2(treeId, parent, result) {
+                if ('0' == result.code) {
+                    var data = result.data.orgList;
+                    if (data) {
+                        ids = $("#deptIds").val();
+                        for (var i = 0; i < data.length; i++) {
+                            if (ids.indexOf(data[i].nodeId) > -1) {
+                                data[i].checked = "true";
+                            }
+                        }
+                    }
+                    $.each(data,
+                    function(i, node) {
+                        if (node.isParent && node.isParent == "true") {
+                            node.iconOpen = "/qwy/manager/images/twopeople_icon.png";
+                            node.iconClose = "/qwy/manager/images/threepeople_icon.png";
+                        } else {
+                            node.icon = "/qwy/manager/images/twopeople_icon.png";
+                        }
+                        /* if(node.parentId!=""){
+                    node.nocheck="true";                        	
+                } */
+                    });
+                    return data;
+                }
+
+            }
+
+            /**
+     * 查看组织机构具体信息
+     * @param event
+     * @param treeId
+     * @param treeNode
+     */
+            function viewOrgNode(event, treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("orgTree");
+                zTree.expandNode(treeNode);
+                $("#personFrame2").attr("src", "/qwy/manager/include/deptList.jsp?nodeId=" + treeNode.nodeId + "&isSettingDep=" + isSetting);
+            }
+
+            /**
+     * 控制节点是否能被选中
+     * @param treeId
+     * @param treeNode
+     * @param clickFlag
+     */
+            function beforNodeCheck(treeId, treeNode, clickFlag) {
+                if (treeNode.parentId == "") {
+                    _alert("", "请选择组织下的部门信息");
+                    $("#orgTree_1_check").attr("style", "display:none");
+                    return false;
+                }
+                return true;
+                /* if (!allowClick) {
+            allowClick = true;
+            return true;
+        } else {
+            return true;
+        } */
+            }
+            /*
+    function nodeChoosed(id, name, checked) {
+        arrayAction("nodeIds", id, checked);
+        $('#nodeNames').html('');
+        $.each( name.split(','), function(i, n){
+            $('#nodeNames').append('<li class="selectedDepartment_item">'+n+'<a href="#">close</a></li>');
+        });
+
+    }*/
+
+            function checkOrgNode(event, treeId, treeNode) {
+                $("#orgTree_1_check").attr("style", "display:none");
+            }
+        </script>
+        <link href="qiwei_files/msgbox.css" rel="stylesheet" type="text/css">
+        <script src="qiwei_files/WdatePicker.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="qiwei_files/rili.css">
+        <script src="qiwei_files/rili.js">
+        </script>
+        <div class="overlay" id="overlayDiv" style="display: none;">
+        </div>
+        <!-- 删除部门 -->
+        <div class="modal-box" id="delOrgConfirmBox" style="display: none;">
+            <div class="modal-header">
+                <h3 id="delOrgConfirmBoxTitle">
+                    删除部门
+                </h3>
+                <span class="modal-del" onclick="$('#delOrgConfirmBox').hide();$('#overlayDiv').hide();">
+                    ×
+                </span>
+            </div>
+            <div class="modal-body">
+                <form method="get" action="#" class="form-horizontal form mt20">
+                    <div class="form-item">
+                        <p class="tc f14" id="delOrgConfirmBoxMsg">
+                            您确定要删除“综合室”部门吗？
+                        </p>
+                    </div>
+                    <div class="form-action tc mt20 mb30 mb20">
+                        <input id="delOrgId" type="hidden">
+                        <a href="javascript:void(0);" onclick="delOrg();" class="btn orangeBtn twoBtn">
+                            确定
+                        </a>
+                        <a href="javascript:void(0);" onclick="$('#delOrgConfirmBox').hide();$('#overlayDiv').hide();"
+                        class="btn writeBtn twoBtn ml10">
+                            取消
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- 删除部门 end -->
+        <div class="modal-box" id="confirmDivBox" style="display: none;">
+            <div class="modal-header">
+                <h3 id="confirmDivBoxTitle">
+                </h3>
+                <span class="modal-del" id="confirmDivBoxClose">
+                    ×
+                </span>
+            </div>
+            <div class="modal-body">
+                <form method="get" action="#" class="form-horizontal form mt20">
+                    <div class="form-item">
+                        <p class="tc f14" id="confirmDivBoxMsg">
+                        </p>
+                    </div>
+                    <div class="form-action tc mt20 mb30 mb20">
+                        <input id="delOrgId" type="hidden">
+                        <a href="javascript:void(0);" id="confirmDivBoxOk" class="btn orangeBtn twoBtn">
+                            确定
+                        </a>
+                        <a href="javascript:void(0);" id="confirmDivBoxFail" class="btn writeBtn twoBtn ml10">
+                            取消
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- imMsgBox -->
+        <div class="modal-box" id="imMsgBox" style="display: none;">
+            <div class="modal-header">
+                <h3 id="imMsgBoxTitle">
+                    title
+                </h3>
+                <span class="modal-del" onclick="$('#imMsgBox').hide();$('#overlayDiv').hide();">
+                    ×
+                </span>
+            </div>
+            <div class="modal-body mt20" id="modal-body">
+                <div class="form-item">
+                    <p class="tc f14" id="imMsgBoxMsg">
+                        msg
+                    </p>
+                </div>
+                <div class="form-action tc mt20 mb30">
+                    <a id="imMsgBoxEnterBut" href="javascript:void(0);" class="btn orangeBtn twoBtn">
+                        确定
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 正在操作 -->
+        <div class="modal-box" id="upFileId_overlay" style="display: none;">
+            <!-- <div class="modal-header">
+            <h3 id="title"></h3>
+            </div> -->
+            <div class="modal-body mt20">
+                <div class="form-item">
+                    <p class="tc f14" id="title_overlay">
+                        正在加载...
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- end正在操作 -->
+        <!-- 定时发布 -->
+        <div class="timepublish_wrap" style="display: none;">
+            <div class="timepublish_tit">
+                定时发布
+                <span class="timepublish_close">
+                    X
+                </span>
+            </div>
+            <div class="timepublish_con" id="timepublish_conId">
+                选择定时发送的时间：
+                <input id="timepublish_input" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'%y-%M-%d %H:%m:%s',maxDate:'2050-10-01 00:00:00'})"
+                type="text">
+                <span id="timepublish_error">
+                    请选择时间
+                </span>
+            </div>
+            <div class="timepublish_foot">
+                <span class="timepublish_enter">
+                    确定
+                </span>
+                <span class="timepublish_cancel">
+                    取消
+                </span>
+            </div>
+        </div>
+        <!-- end定时发布 -->
+        <!-- 高级搜索 -->
+        <div class="senior_search" style="display:none;">
+            <div class="SS_tit">
+                高级搜索
+                <i>
+                    ×
+                </i>
+            </div>
+            <div class="SS_main mt30">
+                <!-- <div class="SS_item"><span>客户名称:</span><input type="text" name="name"></div>
+                <div class="SS_item"><span>区域:</span>
+                <select>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                </select>
+                </div>
+                <div class="SS_item"><span>行业:</span><input type="text"></div>
+                <div class="SS_item"><span>负责人:</span><input type="text"></div>
+                <div class="SS_item"><span>创建日期:</span><input type="text"></div>
+                <div class="SS_item"><span>更新日期:</span><input type="text"></div> -->
+            </div>
+            <div class="SS_btn tac">
+                <input value="确认" id="SS_enter" class="btn orangeBtn twoBtn mt20 mr10"
+                type="button">
+                <input value="重置" id="SS_reset" class="btn orangeBtn twoBtn mr10" type="button">
+                <input value="取消" id="SS_qx" class="btn twoBtn" type="button">
+            </div>
+        </div>
+        <!-- 高级搜索 end -->
+        <!-- imMsgBox end -->
+        <script type="text/javascript" defer="defer">
+            var imMsgCallback;
+            _alert = function(title, msg, callback) {
+                var obj = $(window.top.document);
+                imMsgCallback = callback;
+                obj.find('#imMsgBoxTitle').html(title);
+                obj.find('#imMsgBoxMsg').html(msg) obj.find('#overlayDiv').show();
+                obj.find("#imMsgBox").show();
+                obj.find("#imMsgBox").css('top', top + 'px');
+                obj.find('#imMsgBoxEnterBut').unbind("click");
+                obj.find('#imMsgBoxEnterBut').bind("click",
+                function() {
+                    obj.find('#imMsgBox').hide();
+                    obj.find('#overlayDiv').hide();
+                    if (imMsgCallback) imMsgCallback.call(imMsgCallback, null, null);
+                });
+            };
+
+            function showLoading(title) {
+                var obj = $(window.top.document);
+                obj.find('#title_overlay').html(title);
+                obj.find('#overlayDiv').show();
+                obj.find("#upFileId_overlay").show();
+            };
+            function hideLoading() {
+                var obj = $(window.top.document);
+                obj.find('#upFileId_overlay').hide();
+                obj.find('#overlayDiv').hide();
+            };
+
+            function alertTime(obj) { //高级搜索双日历插件 
+                $(obj).dateRangePicker();
+            }
+
+            $(window).on('load',
+            function() {
+                //定时发布
+                $('.timepublish_enter').click(function() {
+                    $('#timepublish_val', window.frames['personFrame'].document).val($('#timepublish_input').val()); //赋值
+                    if ($('#timepublish_input').val() == "") {
+                        $("#timepublish_error").show();
+                    } else {
+                        $(window.frames['personFrame'].EnterTime());
+                    }
+                }) $('.timepublish_close').click(function() { //关闭
+                    $('#overlayDiv').hide();
+                    $('.timepublish_wrap').hide();
+                }) $('.timepublish_cancel').click(function() { //隐藏
+                    $('#overlayDiv').hide();
+                    $('.timepublish_wrap').hide();
+                })
+                //高级搜索双日历插件
+                try {
+                    /*  $('#ss_CJtime').daterangepicker();
+      		  $('#ss_GXtime').daterangepicker();   */
+                    /* $('.form-control,#ss_GXtime').daterangepicker(null, function(start, end, label) {
+                  console.log(start.toISOString(), end.toISOString(), label);
+                }); */
+                } catch(e) {}
+            })
+
+            /**确认框弹出层*/
+
+            /*
+     *button 以|隔开，|前是确定按钮文字，|后是取消按钮文字，为空表示默认
+     */
+            _confirm = function(title, msg, button, callback) {
+                imMsgCallback = callback;
+                var obj = $(window.top.document).find('#confirmDivBox');
+                obj.find('#confirmDivBoxTitle').html(title);
+                obj.find('#confirmDivBoxMsg').html(msg);
+                if (button && button != null && button != "") {
+                    var split = button.split("|");
+                    obj.find('#confirmDivBoxOk').html(split[0]);
+                    obj.find('#confirmDivBoxFail').html(split[1]);
+                }
+                $(window.top.document).find('#overlayDiv').show();
+                obj.show();
+                obj.css('top', top + 'px');
+                obj.find('#confirmDivBoxOk').unbind("click");
+                obj.find('#confirmDivBoxOk').bind("click",
+                function() {
+                    obj.hide();
+                    $(window.top.document).find('#overlayDiv').hide();
+                    imMsgCallback.ok && imMsgCallback.ok.call(imMsgCallback.ok, null, null);
+                });
+                obj.find('#confirmDivBoxFail').unbind("click");
+                obj.find('#confirmDivBoxFail').bind("click",
+                function() {
+                    obj.hide();
+                    $(window.top.document).find('#overlayDiv').hide();
+                    imMsgCallback.fail && imMsgCallback.fail.call(imMsgCallback.fail, null, null);
+                });
+                obj.find('#confirmDivBoxClose').unbind("click");
+                obj.find('#confirmDivBoxClose').bind("click",
+                function() {
+                    obj.hide();
+                    $(window.top.document).find('#overlayDiv').hide();
+                    imMsgCallback.fail && imMsgCallback.fail.call(imMsgCallback.fail, null, null);
+                });
+            }
+        </script>
+        <div style="position: absolute; top: -1970px; left: -1970px;">
+            <iframe style="width: 186px; height: 199px;" src="flow_list_data/My97DatePicker.htm"
+            border="0" scrolling="no" frameborder="0">
+            </iframe>
+        </div>
+    </body>
+
+</html>

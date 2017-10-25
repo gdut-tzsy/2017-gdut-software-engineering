@@ -1,0 +1,144 @@
+@charset "utf-8";
+.mr40 {margin-right: 40px;}
+.ml40 {margin-left: 40px;}
+.c_ff9600 {color: #ff9600} /*橙色*/
+.pa_hide {position: absolute;left: -10000px;}
+.w96 {width: 96px;}
+.form-field .w285 {width: 285px}
+.ib,
+.s-btn,
+.minus_img,
+.upload_img {display: inline-block;vertical-align: middle;}
+/*小按钮*/
+.s-btn {
+	padding-left: 10px;padding-right: 10px;
+  height: 26px;
+  line-height: 26px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.orange-s-btn {
+  background: #ff9600;
+  color: #fff;
+  border: 1px solid #e2750a;
+}
+
+.orange-s-btn:hover {
+  background: #ff4e00;
+  color: #fff;
+  border: 1px solid #cf4306;
+}
+.gray_line {height: 1px;overflow: hidden;background-color:#dbdbdd}
+.bb1 {border-bottom: 1px solid #ccc}
+.border_bottom_dashed {border-bottom: 1px dashed #ccc}
+
+.msg_send_box {margin-top: 20px;border: 1px solid #ccc}
+.msg_send_top,
+.msg_send_content,
+.msg_send_footer {padding:10px 15px;}
+.msg_send_top {border-bottom: 1px solid #ccc}
+
+.msg_send_tab {overflow: hidden;}
+.msg_send_tab li {float: left;display: inline;padding-right: 20px;cursor: pointer;}
+.msg_send_tab li:hover,
+.msg_send_tab li.on {color: #333}
+
+.edit_ico,
+.pic_ico,
+.face_ico,
+.pic_text_ico {display: inline-block;vertical-align: middle;width: 25px;height: 25px;
+  background: url(../../images/autoreply/s-sprite.png) no-repeat;transition:all .2s;-webkit-transition:all .2s;}
+body .edit_ico {background-position: -8px -68px}
+body .pic_ico {background-position: -3px -5px}
+body .face_ico {background-position: -39px -40px} 
+body .pic_text_ico {background-position: -68px -5px}
+.msg_send_tab li:hover .edit_ico,
+.msg_send_tab li.on .edit_ico {background-position: -7px -39px}
+.msg_send_tab li:hover .pic_ico,
+.msg_send_tab li.on .pic_ico {background-position: -38px -5px}
+.msg_send_tab li:hover .pic_text_ico,
+.msg_send_tab li.on .pic_text_ico {background-position: -68px -35px}
+
+.msg_send_content {position: relative;min-height: 200px;border-bottom: 1px solid #ccc;margin-bottom: -1px}
+.msg_send_content[contenteditable="true"]:focus {outline: none}
+.loaded_photo {width: 300px;height: 170px;line-height: 170px;text-align: center;
+  background: url(../../images/autoreply/u214.png) no-repeat;
+}
+.textarea_wrap {padding: 10px 15px;border-bottom: 1px solid #ccc;}
+textarea {border: none;resize:none;box-sizing:border-box;outline: none}
+textarea.msg_send_content {width: 100%;padding: 0;background-color: transparent;border: none;box-shadow: none;}
+.msg_send_content .loaded_photo {position: relative;margin-top: 10px;margin-right: 10px}
+.msg_send_content .loaded_photo img {width: 100%;height: 100%;position: absolute;left: 0;top: 0}
+.msg_send_footer {position: relative;}
+
+/*QQ emotions*/
+.emotion_wrp {
+    display: none;
+    position: absolute;
+    width: 421px;
+    top: 100%;
+    left: 0;
+}
+.hook {
+    position: absolute;
+    left: 21px;
+    top: 0;
+}
+.hook .hook_dec {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px;
+}
+.hook .hook_top {
+    top: -16px;
+    border-color: transparent transparent #c0bfc5;
+}
+.hook .hook_btm {
+    top: -15px;
+    border-color: transparent transparent #f6f6f6;
+}
+
+.emotions {
+    -moz-user-select: none;
+    overflow: hidden;
+    border-top: 1px solid #c0bfc5;
+    border-right: 1px solid #c0bfc5;
+    background-color: #e7e7eb;
+}
+.emotions_item {
+    float: left;
+    line-height: 27px;
+    height: 27px;
+    font-size: 0;
+    text-align: center;
+    width: 27px;
+    border-bottom: 1px solid #c0bfc5;
+    border-left: 1px solid #c0bfc5;
+    background-color: #fff;
+}
+.emotions_item i {
+    display: inline-block;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    background: url(../../images/autoreply/default218877.gif) no-repeat 0 0;
+}
+.emotions_preview {
+    position: absolute;
+    top: 0;
+    right: -81px;
+    display: block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 0;
+    text-align: center;
+    border: 1px solid #c0bfc5;
+    background-color: #fff;
+}
+

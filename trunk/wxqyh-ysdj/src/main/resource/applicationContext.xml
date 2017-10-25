@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">  
+  <import  resource="classpath:wxqyh-applicationContext.xml"/>
+  <!-- SQLSERVER -->  
+  <!--<bean id="sqlDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->  
+  <!--<property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver"/>-->  
+  <!--<property name="url" value="jdbc:jtds:sqlserver://192.168.1.3:1533;DatabaseName=dsms;sendStringParametersAsUnicode=false"/>-->  
+  <!--<property name="username" value="dsms"/>-->  
+  <!--<property name="password" value="dsms"/>-->  
+  <!--</bean>-->  
+  <!--&lt;!&ndash; 所有SQLSERVER dao的parent&ndash;&gt;-->  
+  <!--<bean name="sqlBaseDAO" abstract="true">-->  
+  <!--<property name="dataSource">-->  
+  <!--<ref local="sqlDataSource"/>-->  
+  <!--</property>-->  
+  <!--</bean>-->  
+  <!--<import resource="classpath:securit-app-context.xml"/>-->  
+ <bean name="cfgMgrBean" class="cn.com.do1.dqdp.core.ConfigMgr"/>  
+  <import resource="classpath:cn/com/do1/dqdp/core/**/*-spring.xml"/>  
+  <import resource="classpath:cn/com/do1/common/**/*-spring.xml"/>  
+  <import resource="classpath:custom-spring.xml"/>  
+  <!--定时任务，如果是跟后台一起的，复制到后台的时候必须打开-->
+  <import resource="classpath:cn/com/do1/component/schedule/resource/spring.xml" />
+  <import resource="classpath:cn/com/do1/component/dqdpmemcache/resource/spring.xml" />
+  <import resource="classpath:cn/com/do1/component/dqdploger/resource/spring.xml"/>  
+  <import resource="classpath:cn/com/do1/component/systemmgr/resource/spring.xml"/>
+  <import resource="classpath:cn/com/do1/component/distributelock/resource/spring.xml" />
+  <import resource="classpath:cn/com/do1/component/dqdpdictionary/resource/spring.xml"/>
+
+  
+  <import  resource="classpath:wxqyh-spring.xml"/>
+  <import  resource="classpath:wxqyhext-spring.xml"/> 
+
+</beans>
