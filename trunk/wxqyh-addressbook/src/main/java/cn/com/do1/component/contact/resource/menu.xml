@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<menus>
-    <menu name="xx管理" permission="">
-        <menu name="新增xx" link="xx_add.jsp"/>
-        <menu name="xx管理" link="xx_list.jsp"/>
-    </menu>
-</menus>
