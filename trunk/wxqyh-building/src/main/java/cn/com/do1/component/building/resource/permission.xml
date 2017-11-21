@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<permissions> 
+  <perm code="" name="" model=""/>  
+  <perm model="出租屋管理管理" name="出租屋管理查看列表" code="buildingList"/>
+  <perm model="出租屋管理管理" name="出租屋管理新增" code="buildingAdd"/>
+  <perm model="出租屋管理管理" name="出租屋管理编辑" code="buildingUpdate"/>
+  <perm model="出租屋管理管理" name="出租屋管理删除" code="buildingDel"/>
+  <perm model="出租屋管理管理" name="出租屋管理查看" code="buildingView"/>
+  <perm model="出租屋管理管理" name="出租屋管理详情" code="buildingDetail"/>
+  <perm model="出租屋管理管理" name="出租屋管理菜单" code="buildingMenu"/>
+  <perm model="出租屋管理管理" name="出租屋管理导入" code="buildingImport"/>
+</permissions>
