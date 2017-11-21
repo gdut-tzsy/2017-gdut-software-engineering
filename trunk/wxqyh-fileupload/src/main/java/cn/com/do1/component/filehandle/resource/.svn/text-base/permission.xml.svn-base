@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<permissions>
+    <perm model="文件管理" name="文件管理菜单" code="filehandleMenu"/>
+    <perm model="文件管理" name="文件管理设置" code="filehandleSetting"/>
+    <perm model="文件管理" name="文件管理详情" code="filehandleDetail"/>
+    <perm model="文件管理" name="主任设置" code="filehandleDirectorSetting"/>
+    <perm model="文件管理" name="文件上传权限设置" code="filehandleUploadSetting"/>
+</permissions>

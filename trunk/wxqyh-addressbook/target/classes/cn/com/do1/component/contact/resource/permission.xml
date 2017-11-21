@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<permissions>
+    <!-- <perm code="contactMenu" name="通讯录菜单" model="通讯录管理"/>
+    <perm code="contactList" name="联系人列表" model="通讯录管理"/>
+    <perm code="contactAdd" name="新增联系人" model="通讯录管理"/>
+    <perm code="memberAdd" name="成员邀请" model="通讯录管理"/>
+    <perm code="memberApprove" name="成员邀请审批" model="通讯录管理"/>
+    <perm code="memberSet" name="成员邀请设置" model="通讯录管理"/>
+    <perm code="memberDetail" name="成员邀请详情" model="通讯录管理"/>
+    <perm code="memberDel" name="成员邀请删除" model="通讯录管理"/>
+    <perm code="contactEdit" name="编辑联系人" model="通讯录管理"/>
+    <perm code="contactDel" name="删除联系人" model="通讯录管理"/>
+    <perm code="contactImport" name="批量导入联系人" model="通讯录管理"/> -->
+    
+   <!--  <perm code="contactSet" name="通讯录设置" model="通讯录管理"/> -->
+    
+    <!-- <perm code="sysmgrMenu" name="系统管理菜单" model="systemmgr"/> -->
+    
+    <!-- <perm code="contentMenu" name="内容管理菜单" model="contentmgr"/> -->
+    
+    <!-- <perm code="groupMenu" name="公共群组菜单" model="通讯录管理"/>
+    <perm code="groupMenu1" name="公共群组菜单" model="通讯录管理"/>
+    <perm code="grouplist1" name="公共群组列表" model="通讯录管理"/>
+    <perm code="groupadd" name="新增公共群组" model="通讯录管理"/>
+    <perm code="groupedit" name="编辑公共群组" model="通讯录管理"/>
+    <perm code="groupsave" name="保存公共群组" model="通讯录管理"/>
+    <perm code="groupupdate" name="更新公共群组" model="通讯录管理"/>
+    <perm code="groupdel" name="删除公共群组" model="通讯录管理"/>
+    <perm code="groupdisable" name="禁用公共群组" model="通讯录管理"/>
+    <perm code="groupstart" name="启用公共群组" model="通讯录管理"/> -->
+    
+    <!-- <perm code="dimissionadd" name="离职权限" model="通讯录管理"/>
+    
+    <perm code="dimissionmenu" name="离职管理菜单" model="离职管理"/>
+    <perm code="dimissionlist" name="离职联系人列表" model="离职管理"/>
+    <perm code="dimissionview" name="查看离职联系人" model="离职管理"/>
+    <perm code="dimissiondel" name="删除离职联系人" model="离职管理"/> -->
+    
+    
+    <!-- <perm code="departmentAdd" name="新增部门" model="通讯录管理"/>
+    <perm code="departmentEdit" name="编辑部门" model="通讯录管理"/>
+    <perm code="departmentDel" name="删除部门" model="通讯录管理"/> 
+    <perm code="configSync" name="同步通讯录" model="通讯录管理"/>
+    <perm code="configSync" name="同步通讯录" model="通讯录管理"/>  -->
+    
+   <!--  <perm code="dimissionfuzhi" name="复职联系人" model="离职管理"/> -->
+   <!-- <perm code="contactExport" name="导出联系人" model="通讯录管理"/> -->
+   
+   <!-- 批量导入部门负责人 -->
+   <!-- <perm code="deptToUserImport" name="导入部门负责人" model="通讯录管理"/> -->
+   
+  <!--  <perm code="userTop" name="人员置顶" model="通讯录管理"/> -->
+  
+<!--   <perm code="certificateTypeList" name="证件类型列表" model="通讯录管理"/>
+  <perm code="certificateTypeAdd" name="证件类型增加" model="通讯录管理"/>
+  <perm code="certificateTypeEdit" name="证件类型编辑" model="通讯录管理"/>
+  <perm code="certificateTypeDel" name="证件类型删除" model="通讯录管理"/> -->
+    
+</permissions>

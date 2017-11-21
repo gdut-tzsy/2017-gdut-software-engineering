@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="addressbook_urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/contactService.remote">/contactRemoteService</prop>
+                <prop key="/wxLoginService.remote">/wxLoginRemoteService</prop>
+                <prop key="/departmentService.remote">/departmentRemoteService</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

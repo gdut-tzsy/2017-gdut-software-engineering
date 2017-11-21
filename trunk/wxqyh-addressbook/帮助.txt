@@ -1,0 +1,3 @@
+搭建项目时，pom.xml中的<wxqyh-xxx>jar包暂时没有上传到maven库，无法直接通过pom引入jar包，需要手动在项目的java构建路径中引入该jar包，最新jar包在svn->trunk->最新jar包
+
+<version>1.0.0</version>为控制jar包的版本，请将主工程和所有子工程的此版本号保持一致
